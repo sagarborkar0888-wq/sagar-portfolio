@@ -50,6 +50,8 @@ class HomeSection extends StatelessWidget {
 
               // 🔥 PROFILE IMAGE
               Container(
+                width: 120,
+                height: 120,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   boxShadow: [
@@ -60,13 +62,12 @@ class HomeSection extends StatelessWidget {
                     ),
                   ],
                 ),
-
-                  child: CircleAvatar(
-                    radius: 60,
-                    backgroundImage: const AssetImage(
-                      'assets/images/sagar_borkar.jpg',
-                    ),
+                child: ClipOval(
+                  child: Image.asset(
+                    'assets/images/sagar_borkar.jpg',
+                    fit: BoxFit.cover,
                   ),
+                ),
               ),
 
               const SizedBox(height: 20),
