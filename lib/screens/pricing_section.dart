@@ -28,7 +28,6 @@ class PricingSection extends StatelessWidget {
                 _title("💼 Services Offered"),
                  _section(_services()),
 
-
                 _title("💎 Custom App Pricing"),
 
                 _section([
