@@ -45,24 +45,34 @@ class PricingSection extends StatelessWidget {
                   child: _section([
                     const Text(
                       "💰 Real-World Pricing\n\n"
+                          "⚠ Price depends on number of screens, features, and complexity. Final quote will be shared after project discussion.\n"
+                          "⚠ Any external costs, deployment fees, or optional features are not included in the base price.\n\n"
 
                           "📱 Basic App: ₹10,000 – ₹25,000 (\$120 – \$300)\n"
                           "• Clean UI\n"
-                          "• Core features\n\n"
+                          "• Core features\n"
+                          "• Screens: 2–5\n\n"
 
                           "📱 Standard App (Recommended): ₹25,000 – ₹60,000 (\$300 – \$750)\n"
                           "• User Authentication (Login/Signup)\n"
-                          "• API & database integration\n\n"
+                          "• API & database integration\n"
+                          "• Screens: 6–15\n\n"
 
                           "📱 Advanced App: ₹60,000 – ₹1,50,000+ (\$750 – \$1800+)\n"
                           "• Full-featured app\n"
                           "• Scalable architecture\n"
                           "• Premium UI/UX\n"
-                          "• Advanced App customers usually choose Premium Support for smooth launch\n\n"
-                          "• ⚠ Note: iOS app is not included in any package. Delivery is Android APK/AAB only.\n"
-                          "• ⚠ AI-powered backend features are not included in any package.\n\n"
+                          "• Advanced App customers usually choose Premium Support for smooth launch\n"
+                          "• Screens: 16–30+\n\n"
+
+                          "• ⚠ Note: Android APK/AAB delivery only; iOS app not included in any package.\n"
+                          "• ⚠ Note: Optional Play Store deployment available as extra paid service.\n"
+                          "• ⚠ Note: AI-powered backend features are not included in any package.\n\n"
 
                           "⚡ Each app is built based on your requirements.\n\n"
+
+                          "⚠ ‘Unlimited’ refers to screens/features within the agreed project scope. Extra requests may require additional fees.\n\n"
+
                           "👉 Final pricing depends on features and scope.\n"
                           "Let’s discuss your idea for an exact estimate.",
                     ),
@@ -240,6 +250,7 @@ Thank you.
     Text("• Mobile App UI/UX Design"),
     Text("• Backend Integration (APIs, Database)"),
     Text("• Performance Optimization"),
+    Text("• Android App Delivery (APK/AAB ready; iOS not included)"),
     Text("• App Deployment & Launch"),
   ];
 
@@ -281,16 +292,24 @@ Thank you.
     Text("• Responsive Design"),
     Text("• Source Code"),
     Text("• Bug Free Setup"),
+    Text("• Signed APK/AAB ready for client use"),
   ];
 
   /// ⚖️ COMPARISON
   Widget _comparisonTable() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _row("Feature", "Basic", "Premium"),
         _row("UI Screens", "2", "Unlimited"),
         _row("API", "❌", "✅"),
         _row("Support", "❌", "✅"),
+        const SizedBox(height: 10),
+        const Text(
+          "⚠ “Unlimited” refers to all screens/features within the agreed project scope."
+              "Extra requests beyond scope can be discussed and may require additional fees.",
+          style: TextStyle(color: Colors.white70, fontSize: 12),
+        ),
       ],
     );
   }
@@ -344,9 +363,12 @@ Thank you.
   ];
 
   List<Widget> _notIncluded() => const [
-    Text("• Hosting Cost"),
-    Text("• App Store Fees"),
-    Text("• Third-party APIs"),
+    Text("⚠ Any external costs, deployment fees, or optional features are not included in the base price.\n"),
+    Text("• Play Store Developer Account (required if deploying Android app)"),
+    Text("• App Store / iOS deployment (not included)"),
+    Text("• Hosting Costs (if any server is used)"),
+    Text("• Third-party APIs or paid services"),
+    Text("• AI-powered backend features"),
   ];
 
   List<Widget> _testimonials() => const [
