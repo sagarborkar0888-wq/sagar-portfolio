@@ -26,9 +26,8 @@ class PricingSection extends StatelessWidget {
               children: [
 
                 _title("💼 Services Offered"),
-                UiHelper.scrollAnimation(
-                  child: _section(_services()),
-                ),
+                 _section(_services()),
+
 
                 _title("💎 Custom App Pricing"),
 
@@ -59,7 +58,10 @@ class PricingSection extends StatelessWidget {
                           "📱 Advanced App: ₹60,000 – ₹1,50,000+ (\$750 – \$1800+)\n"
                           "• Full-featured app\n"
                           "• Scalable architecture\n"
-                          "• Premium UI/UX\n\n"
+                          "• Premium UI/UX\n"
+                          "• Advanced App customers usually choose Premium Support for smooth launch\n\n"
+                          "• ⚠ Note: iOS app is not included in any package. Delivery is Android APK/AAB only.\n"
+                          "• ⚠ AI-powered backend features are not included in any package.\n\n"
 
                           "⚡ Each app is built based on your requirements.\n\n"
                           "👉 Final pricing depends on features and scope.\n"
@@ -322,9 +324,10 @@ Thank you.
   ];
 
   List<Widget> _support() => const [
-    Text("• Basic: No Support"),
-    Text("• Standard: 7 Days"),
-    Text("• Premium: 30 Days"),
+    Text("• Basic: No Support – Just app delivery"),
+    Text("• Standard: 7 Days – Minor bug fixes after launch"),
+    Text("• Premium: 30 Days – Full launch support + minor updates (recommended for Advanced Apps)"),
+    Text("• Optional: Monthly Support – Ongoing updates & maintenance (₹5k–10k/month)"),
   ];
 
   List<Widget> _payment() => const [

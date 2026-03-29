@@ -41,6 +41,8 @@ class AboutSection extends StatelessWidget {
 
                     /// 🔥 PROFILE IMAGE
                     Container(
+                      width: 110, // 2*radius = 55*2
+                      height: 110,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         boxShadow: [
@@ -48,13 +50,12 @@ class AboutSection extends StatelessWidget {
                             color: Colors.black.withOpacity(0.4),
                             blurRadius: 20,
                             spreadRadius: 2,
-                          )
+                          ),
                         ],
-                      ),
-                      child: const CircleAvatar(
-                        radius: 55,
-                        backgroundImage:
-                        AssetImage('assets/images/sagar_borkar.jpg'),
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/sagar_borkar.jpg'),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
 

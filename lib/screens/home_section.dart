@@ -61,10 +61,8 @@ class HomeSection extends StatelessWidget {
                       spreadRadius: 5,
                     ),
                   ],
-                ),
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/images/sagar_borkar.jpg',
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/sagar_borkar.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -196,13 +194,11 @@ class HomeSection extends StatelessWidget {
                 ),
               ),
 
-              UiHelper.scrollAnimation(
-                child: _sectionCard(
+              _sectionCard(
                   "🚀 My Mission",
                   "Creating apps that bring real impact and freedom.",
                   Icons.rocket_launch,
                 ),
-              ),
 
               UiHelper.scrollAnimation(
                 child: _sectionCard(
@@ -212,13 +208,12 @@ class HomeSection extends StatelessWidget {
                 ),
               ),
 
-              UiHelper.scrollAnimation(
-                child: _sectionCard(
+              _sectionCard(
                   "🔥 SocialProX",
                   "Built a social media app with chat, feed & media sharing",
                   Icons.verified,
                 ),
-              ),
+
 
               UiHelper.scrollAnimation(
                 child: _sectionCard(
@@ -228,13 +223,12 @@ class HomeSection extends StatelessWidget {
                 ),
               ),
 
-              UiHelper.scrollAnimation(
-                child: _sectionCard(
+              _sectionCard(
                   "📊 Stats",
                   "🚀 1 Social App Built\n📱 20+ Screens Designed\n🔥 Real Features (Chat, Feed, Upload)",
                   Icons.bar_chart,
                 ),
-              ),
+
 
               UiHelper.scrollAnimation(
                 child: _sectionCard(
@@ -244,13 +238,12 @@ class HomeSection extends StatelessWidget {
                 ),
               ),
 
-              UiHelper.scrollAnimation(
-                child: _sectionCard(
+              _sectionCard(
                   "📈 Growth",
                   "Focused on building, improving, and scaling real apps",
                   Icons.trending_up,
                 ),
-              ),
+
 
               const SizedBox(height: 30),
 
