@@ -28,56 +28,61 @@ class PricingSection extends StatelessWidget {
                 _title("💼 Services Offered"),
                  _section(_services()),
 
-                _title("💎 Custom App Pricing"),
+                _title("🧠 How Pricing Works"),
 
                 _section([
                   const Text(
-                    "Custom App (Based on Requirements)\n\n"
-                        "💰 Starting from ₹20,000 (Starting)\n\n"
-                        "Final pricing depends on features, complexity, and scalability requirements.\n\n"
-                        "Let’s discuss your project to provide an accurate estimate.",
+                    "Every app is different. Pricing depends on:\n\n"
+                        "• Number of screens\n"
+                        "• Features & integrations\n"
+                        "• App complexity\n"
+                        "• Timeline requirements\n\n"
+                        "The packages below are real-world estimates based on typical client projects.\n"
+                        "Final quote is shared after understanding your project requirements.",
                   ),
                 ]),
 
                 _title("📱 App Development Pricing"),
 
-                UiHelper.scrollAnimation(
-                  child: _section([
-                    const Text(
-                      "💰 Real-World Pricing\n\n"
-                          "⚠ Price depends on number of screens, features, and complexity. Final quote will be shared after project discussion.\n"
-                          "⚠ Any external costs, deployment fees, or optional features are not included in the base price.\n\n"
+              UiHelper.scrollAnimation(
+                child: _section([
+                  const Text(
+                    "💰 Real-World Pricing\n\n"
+                        "⚠ Price depends on number of screens, features, and complexity. Final quote will be shared after project discussion.\n"
+                        "⚠ Any external costs, deployment fees, or optional services are not included in the base price.\n\n"
 
-                          "📱 Basic App: ₹10,000 – ₹25,000 (\$120 – \$300)\n"
-                          "• Clean UI\n"
-                          "• Core features\n"
-                          "• Screens: 2–5\n\n"
+                        "📱 Basic App: ₹10,000 – ₹25,000 (\$120 – \$300)\n"
+                        "• Clean UI\n"
+                        "• Core features\n"
+                        "• Screens: 2–5\n\n"
 
-                          "📱 Standard App (Recommended): ₹25,000 – ₹60,000 (\$300 – \$750)\n"
-                          "• User Authentication (Login/Signup)\n"
-                          "• API & database integration\n"
-                          "• Screens: 6–15\n\n"
+                        "📱 Standard App (Recommended): ₹25,000 – ₹60,000 (\$300 – \$750)\n"
+                        "• User Authentication (Login/Signup)\n"
+                        "• API & database integration\n"
+                        "• Screens: 6–15\n\n"
 
-                          "📱 Advanced App: ₹60,000 – ₹1,50,000+ (\$750 – \$1800+)\n"
-                          "• Full-featured app\n"
-                          "• Scalable architecture\n"
-                          "• Premium UI/UX\n"
-                          "• Advanced App customers usually choose Premium Support for smooth launch\n"
-                          "• Screens: 16–30+\n\n"
+                        "📱 Advanced App: ₹60,000 – ₹1,50,000+ (\$750 – \$1800+)\n"
+                        "• Full-featured app\n"
+                        "• Scalable architecture\n"
+                        "• Premium UI/UX\n"
+                        "• Screens: 16–30+\n\n"
 
-                          "• ⚠ Note: Android APK/AAB delivery only; iOS app not included in any package.\n"
-                          "• ⚠ Note: Optional Play Store deployment available as extra paid service.\n"
-                          "• ⚠ Note: AI-powered backend features are not included in any package.\n\n"
+                        "⚙ Delivery & Add-ons\n"
+                        "• Android app build (APK/AAB) included in all packages\n"
+                        "• Google Play Store deployment available as a paid add-on service\n"
+                        "• Client provides Play Store developer account for publishing\n"
+                        "• iOS app development is not available currently\n"
+                        "• Ongoing support & maintenance available after delivery\n\n"
 
-                          "⚡ Each app is built based on your requirements.\n\n"
+                        "⚡ Each app is built based on your requirements.\n\n"
 
-                          "⚠ ‘Unlimited’ refers to screens/features within the agreed project scope. Extra requests may require additional fees.\n\n"
+                        "⚠ “Unlimited” refers to screens/features within the agreed project scope. Additional feature requests may require extra fees.\n\n"
 
-                          "👉 Final pricing depends on features and scope.\n"
-                          "Let’s discuss your idea for an exact estimate.",
-                    ),
-                  ]),
-                ),
+                        "👉 Final pricing depends on features and scope.\n"
+                        "Let’s discuss your idea for an exact estimate.",
+                  ),
+                ]),
+              ),
 
                 _title("⚙️ Admin Panel (Optional Add-on)"),
 
@@ -86,7 +91,7 @@ class PricingSection extends StatelessWidget {
                     const Text(
                     "👉 Helps you manage your app easily without technical knowledge.\n\n"
                       "💻 Admin Dashboard (Web Platform)\n"
-                          "₹20,000 – ₹40,000 (\$240 – \$500)\n\n"
+                          "₹25,000 – ₹60,000 (\$300 – \$750)\n\n"
 
                           "Includes:\n"
                           "• Admin login\n"
@@ -123,7 +128,7 @@ class PricingSection extends StatelessWidget {
                 _title("💳 Payment Terms"),
                 UiHelper.scrollAnimation(child: _section(_payment())),
 
-                _title("📊 Tech Stack"),
+                _title("📊 Development Approach"),
                 UiHelper.scrollAnimation(
                   child: _section([
                     const Text(
@@ -139,6 +144,9 @@ class PricingSection extends StatelessWidget {
                     ),
                   ]),
                 ),
+
+                _title("🛠 Tech Stack"),
+                UiHelper.scrollAnimation(child: _section(_techStack())),
 
                 _title("🚫 Not Included"),
                 UiHelper.scrollAnimation(child: _section(_notIncluded())),
@@ -246,12 +254,12 @@ Thank you.
 
   /// 🔥 SERVICES
   List<Widget> _services() => const [
-    Text("• Full Stack App Development"),
+    Text("• Cross-platform Mobile App Development"),
     Text("• Mobile App UI/UX Design"),
-    Text("• Backend Integration (APIs, Database)"),
-    Text("• Performance Optimization"),
-    Text("• Android App Delivery (APK/AAB ready; iOS not included)"),
-    Text("• App Deployment & Launch"),
+    Text("• Backend Integration (APIs & Database)"),
+    Text("• App Performance Optimization"),
+    Text("• Android App Delivery (Signed APK/AAB)"),
+    Text("• Google Play Store Deployment (optional paid add-on)"),
   ];
 
   /// 🔥 PRICING CARD
@@ -291,7 +299,7 @@ Thank you.
     Text("• Modern UI Design"),
     Text("• Responsive Design"),
     Text("• Source Code"),
-    Text("• Bug Free Setup"),
+    Text("• Stable production-ready setup"),
     Text("• Signed APK/AAB ready for client use"),
   ];
 
@@ -300,13 +308,17 @@ Thank you.
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _row("Feature", "Basic", "Premium"),
-        _row("UI Screens", "2", "Unlimited"),
-        _row("API", "❌", "✅"),
-        _row("Support", "❌", "✅"),
+        _row("Feature", "Basic", "Standard", "Advanced"),
+        _row("UI Screens", "2–5", "6–15", "16+"),
+        _row("UI/UX Quality", "Basic", "Improved", "Premium"),
+        _row("Authentication", "❌", "✅", "✅"),
+        _row("API Integration", "❌", "✅", "✅"),
+        _row("Database", "❌", "✅", "✅"),
+        _row("Architecture", "Basic", "Standard", "Scalable"),
+        _row("Launch Support", "❌", "Limited", "Priority"),
         const SizedBox(height: 10),
         const Text(
-          "⚠ “Unlimited” refers to all screens/features within the agreed project scope."
+          "⚠ “Unlimited” refers to all screens/features within the agreed project scope. "
               "Extra requests beyond scope can be discussed and may require additional fees.",
           style: TextStyle(color: Colors.white70, fontSize: 12),
         ),
@@ -314,58 +326,60 @@ Thank you.
     );
   }
 
-  Widget _row(String a, String b, String c) {
+  Widget _row(String feature, String basic, String standard, String advanced) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(child: Text(a)),
-          Expanded(child: Text(b, textAlign: TextAlign.center)),
-          Expanded(child: Text(c, textAlign: TextAlign.right)),
+          Expanded(flex: 2, child: Text(feature)),
+          Expanded(child: Text(basic, textAlign: TextAlign.center)),
+          Expanded(child: Text(standard, textAlign: TextAlign.center)),
+          Expanded(child: Text(advanced, textAlign: TextAlign.right)),
         ],
       ),
     );
   }
 
   List<Widget> _delivery() => const [
-    Text("• Basic: 2–4 Days"),
-    Text("• Standard: 5–10 Days"),
-    Text("• Advanced: 10–20 Days"),
+    Text("• Basic: 5–10 Days"),
+    Text("• Standard: 10–18 Days"),
+    Text("• Advanced: 3–5 Weeks"),
     Text("• Delivery time may vary depending on project requirements."),
   ];
 
   List<Widget> _revisions() => const [
-    Text("• Basic: 1 Revision"),
-    Text("• Standard: 2 Revisions"),
-    Text("• Premium: 3–5 Minor Revisions"),
+    Text("• Basic: 1 revision"),
+    Text("• Standard: 2 revisions"),
+    Text("• Advanced: Up to 5 minor design/feature revisions"),
   ];
 
   List<Widget> _support() => const [
-    Text("• Basic: No Support – Just app delivery"),
-    Text("• Standard: 7 Days – Minor bug fixes after launch"),
-    Text("• Premium: 30 Days – Full launch support + minor updates (recommended for Advanced Apps)"),
-    Text("• Optional: Monthly Support – Ongoing updates & maintenance (₹5k–10k/month)"),
+    Text("• Basic: App delivery only"),
+    Text("• Standard: 7 days post-delivery minor bug fixes"),
+    Text("• Advanced: 30 days post-launch support + minor updates"),
+    Text("• Optional: Monthly maintenance plan available"),
   ];
 
   List<Widget> _payment() => const [
-    Text("• 50% Advance"),
-    Text("• UPI / Bank Transfer"),
-    Text("• Payment details will be discussed"),
-    Text("• Payments are non-refundable once development begins"),
+    Text("• 50% advance to start the project"),
+    Text("• Remaining 50% before final delivery"),
+    Text("• UPI / Bank Transfer accepted"),
+    Text("• Milestone payments available for large projects"),
+    Text("• Payments are for the work completed and time reserved for your project"),
   ];
 
   List<Widget> _techStack() => const [
-    Text("• Flutter"),
-    Text("• Firebase"),
-    Text("• REST APIs"),
-    Text("• Cloud Storage"),
+    Text("• Cross-platform mobile app development"),
+    Text("• Backend integration & APIs"),
+    Text("• Cloud database & storage"),
+    Text("• Secure authentication systems"),
+    Text("• Scalable app architecture"),
   ];
 
   List<Widget> _notIncluded() => const [
     Text("⚠ Any external costs, deployment fees, or optional features are not included in the base price.\n"),
     Text("• Play Store Developer Account (required if deploying Android app)"),
-    Text("• App Store / iOS deployment (not included)"),
+    Text("• iOS app build & App Store deployment"),
     Text("• Hosting Costs (if any server is used)"),
     Text("• Third-party APIs or paid services"),
     Text("• AI-powered backend features"),
@@ -373,6 +387,6 @@ Thank you.
 
   List<Widget> _testimonials() => const [
     Text("⭐ Clean UI & smooth performance"),
-    Text("⭐ Professional and reliable developer"),
+    Text("⭐ Professional & reliable development experience"),
   ];
 }

@@ -45,16 +45,16 @@ class AboutSection extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.4),
+                            color: Colors.black.withOpacity(0.3),
                             blurRadius: 20,
-                            spreadRadius: 2,
-                          )
+                            spreadRadius: 3,
+                          ),
                         ],
                       ),
                       child: const CircleAvatar(
-                        radius: 55,
+                        radius: 60,
                         backgroundImage: AssetImage(
-                          'assets/images/sagar_borkar.jpg',
+                          'assets/images/sagar_borkar_Sg.jpg',
                         ),
                       ),
                     ),

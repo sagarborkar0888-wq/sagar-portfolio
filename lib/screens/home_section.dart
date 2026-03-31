@@ -62,7 +62,7 @@ class HomeSection extends StatelessWidget {
                     ),
                   ],
                   image: DecorationImage(
-                    image: AssetImage('assets/images/sagar_borkar.jpg'),
+                    image: AssetImage('assets/images/sagar_borkar_Sg.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -215,13 +215,11 @@ class HomeSection extends StatelessWidget {
                 ),
 
 
-              UiHelper.scrollAnimation(
-                child: _sectionCard(
+               _sectionCard(
                   "🧠 Tech Stack",
                   "Flutter • Dart • Supabase • Cloudinary • REST APIs",
                   Icons.memory,
                 ),
-              ),
 
               _sectionCard(
                   "📊 Stats",
@@ -230,13 +228,12 @@ class HomeSection extends StatelessWidget {
                 ),
 
 
-              UiHelper.scrollAnimation(
-                child: _sectionCard(
+              _sectionCard(
                   "💬 Client Feedback",
                   "“Clean UI & smooth experience. Impressive work!”",
                   Icons.star,
                 ),
-              ),
+
 
               _sectionCard(
                   "📈 Growth",
@@ -484,7 +481,7 @@ class HomeSection extends StatelessWidget {
                 Row(
                   children: [
                     UiHelper.glowAvatarAsset(
-                      imagePath: 'assets/images/sagar_borkar.jpg',
+                      imagePath: 'assets/images/',
                       radius: 18,
                     ),
                     const SizedBox(width: 10),
