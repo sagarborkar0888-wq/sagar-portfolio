@@ -13,7 +13,11 @@ class _SkillsSectionState extends State<SkillsSection> {
 
   final List<Map<String, dynamic>> skills = const [
     {'name': 'Mobile App Development', 'percent': 0.9, 'category': 'Frontend'},
-    {'name': 'App Logic & Architecture', 'percent': 0.85, 'category': 'Frontend'},
+    {
+      'name': 'App Logic & Architecture',
+      'percent': 0.85,
+      'category': 'Frontend',
+    },
     {'name': 'Backend Integration', 'percent': 0.7, 'category': 'Backend'},
     {'name': 'Database Management', 'percent': 0.75, 'category': 'Backend'},
     {'name': 'UI/UX Design', 'percent': 0.8, 'category': 'Tools'},
@@ -29,14 +33,10 @@ class _SkillsSectionState extends State<SkillsSection> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Skills 🚀"),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Skills 🚀"), centerTitle: true),
 
       body: Stack(
         children: [
-
           /// 🔥 BACKGROUND GRADIENT (FUTURE LOOK)
           Container(
             decoration: const BoxDecoration(
@@ -54,15 +54,11 @@ class _SkillsSectionState extends State<SkillsSection> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 /// 🔥 HEADER
                 UiHelper.fadeSlideSection(
                   child: const Text(
                     "My Skills 💡",
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                   ),
                 ),
 
@@ -96,14 +92,12 @@ class _SkillsSectionState extends State<SkillsSection> {
                       UiHelper.chipButton(
                         text: "Backend",
                         isSelected: selectedFilter == "Backend",
-                        onTap: () =>
-                            setState(() => selectedFilter = "Backend"),
+                        onTap: () => setState(() => selectedFilter = "Backend"),
                       ),
                       UiHelper.chipButton(
                         text: "Tools",
                         isSelected: selectedFilter == "Tools",
-                        onTap: () =>
-                            setState(() => selectedFilter = "Tools"),
+                        onTap: () => setState(() => selectedFilter = "Tools"),
                       ),
                     ],
                   ),
@@ -143,7 +137,6 @@ class _SkillsSectionState extends State<SkillsSection> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
                             /// 🔥 TOP ROW
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,7 +164,9 @@ class _SkillsSectionState extends State<SkillsSection> {
                             /// 🔥 CATEGORY TAG
                             Container(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 4),
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
                               decoration: BoxDecoration(
                                 color: Colors.blue.withOpacity(0.2),
                                 borderRadius: BorderRadius.circular(10),
@@ -211,7 +206,6 @@ class _SkillsSectionState extends State<SkillsSection> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-
                         const Text(
                           "🚀 Work With Me",
                           style: TextStyle(
@@ -237,7 +231,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                                 text: "Contact",
                                 onTap: () {
                                   UiHelper.launchUrlLink(
-                                      "https://wa.me/918788357452?text=Hi%20Sagar%20👋%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you.%0A%0ACan%20we%20talk%3F%20😊"
+                                    "https://wa.me/918788357452?text=Hi%20Sagar%20👋%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you.%0A%0ACan%20we%20talk%3F%20😊",
                                   );
                                 },
                               ),
@@ -250,10 +244,10 @@ class _SkillsSectionState extends State<SkillsSection> {
                                 text: "Start Project",
                                 onTap: () {
                                   UiHelper.launchUrlLink(
-                                      "https://wa.me/918788357452?text=🚀%20Project%20Inquiry%0A%0AHi%20Sagar%20👋%0A%0AI%20found%20your%20portfolio%20and%20I%E2%80%99m%20interested%"
-                                          "20in%20working%20with%20you.%0A%0A📝%20Project%20Details:%0A%E2%80%A2%20Project%20Type:%20(App%20/%20Website%20/%20Both)%0A%E2%80%A2%20Featur"
-                                          "es%20Required:%20%0A%E2%80%A2%20Budget:%20%0A%E2%80%A2%20Timeline:%20%0A%0A💡%20Additional%20Information:%0A(Briefly%20explain%20your%20idea%20"
-                                          "or%20goal)%0A%0ALooking%20forward%20to%20your%20response.%0A%0AThank%20you."
+                                    "https://wa.me/918788357452?text=🚀%20Project%20Inquiry%0A%0AHi%20Sagar%20👋%0A%0AI%20found%20your%20portfolio%20and%20I%E2%80%99m%20interested%"
+                                    "20in%20working%20with%20you.%0A%0A📝%20Project%20Details:%0A%E2%80%A2%20Project%20Type:%20(App%20/%20Website%20/%20Both)%0A%E2%80%A2%20Featur"
+                                    "es%20Required:%20%0A%E2%80%A2%20Budget:%20%0A%E2%80%A2%20Timeline:%20%0A%0A💡%20Additional%20Information:%0A(Briefly%20explain%20your%20idea%20"
+                                    "or%20goal)%0A%0ALooking%20forward%20to%20your%20response.%0A%0AThank%20you.",
                                   );
                                 },
                               ),

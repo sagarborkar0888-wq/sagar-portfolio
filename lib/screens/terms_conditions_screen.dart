@@ -23,7 +23,6 @@ class TermsConditionsScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-
                 UiHelper.scrollAnimation(
                   child: UiHelper.sectionCard(
                     title: "📌 About",
@@ -122,14 +121,13 @@ class TermsConditionsScreen extends StatelessWidget {
                       text: "Instagram",
                       icon: Icons.camera_alt,
                       url:
-                      "https://www.instagram.com/sagar_borkar_sg?igsh=bmM4cG9tbjh2ZGFm",
+                          "https://www.instagram.com/sagar_borkar_sg?igsh=bmM4cG9tbjh2ZGFm",
                     ),
 
                     UiHelper.socialButton(
                       text: "LinkedIn",
                       icon: Icons.work,
-                      url:
-                      "https://www.linkedin.com/in/sagar-borkar-724ba7315",
+                      url: "https://www.linkedin.com/in/sagar-borkar-724ba7315",
                     ),
 
                     UiHelper.socialButton(
@@ -148,7 +146,7 @@ class TermsConditionsScreen extends StatelessWidget {
                       text: "WhatsApp",
                       icon: Icons.chat,
                       url:
-                      "https://wa.me/918788357452?text=🚀%20Project%20Inquiry%0A%0AHi%20Sagar%20👋%0A%0AI%20found%20your%20portfolio%20and%20I%E2%80%99m%20interested%"
+                          "https://wa.me/918788357452?text=🚀%20Project%20Inquiry%0A%0AHi%20Sagar%20👋%0A%0AI%20found%20your%20portfolio%20and%20I%E2%80%99m%20interested%"
                           "20in%20working%20with%20you.%0A%0A📝%20Project%20Details:%0A%E2%80%A2%20Project%20Type:%20(App%20/%20Website%20/%20Both)%0A%E2%80%A2%20Featur"
                           "es%20Required:%20%0A%E2%80%A2%20Budget:%20%0A%E2%80%A2%20Timeline:%20%0A%0A💡%20Additional%20Information:%0A(Briefly%20explain%20your%20idea%20"
                           "or%20goal)%0A%0ALooking%20forward%20to%20your%20response.%0A%0AThank%20you.",

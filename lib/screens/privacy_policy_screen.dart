@@ -30,7 +30,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                     items: [
                       "This policy applies to all users of this platform.",
                       "We respect your privacy and protect your data.",
-                      "This policy explains how we collect, use, and protect your information."
+                      "This policy explains how we collect, use, and protect your information.",
                     ],
                   ),
                 ),

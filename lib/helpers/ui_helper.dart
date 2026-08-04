@@ -24,9 +24,7 @@ class UiHelper {
         decoration: BoxDecoration(
           color: const Color(0xFF0D0D0D),
           borderRadius: BorderRadius.circular(25),
-          border: Border.all(
-            color: Colors.white.withOpacity(0.08),
-          ),
+          border: Border.all(color: Colors.white.withOpacity(0.08)),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.9),
@@ -56,15 +54,17 @@ class UiHelper {
 
             const SizedBox(height: 12),
 
-            ...items.map(
+            ...items
+                .map(
                   (item) => Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Text(
-                  "• $item",
-                  style: const TextStyle(color: Colors.white70),
-                ),
-              ),
-            ).toList(),
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Text(
+                      "• $item",
+                      style: const TextStyle(color: Colors.white70),
+                    ),
+                  ),
+                )
+                .toList(),
           ],
         ),
       ),
@@ -114,9 +114,7 @@ class UiHelper {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          gradient: const LinearGradient(
-            colors: [Colors.blue, Colors.purple],
-          ),
+          gradient: const LinearGradient(colors: [Colors.blue, Colors.purple]),
           boxShadow: [
             BoxShadow(
               color: Colors.blue.withOpacity(0.3),
@@ -184,15 +182,10 @@ class UiHelper {
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Colors.blue, Colors.purple],
-          ),
+          gradient: const LinearGradient(colors: [Colors.blue, Colors.purple]),
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
-            BoxShadow(
-              color: Colors.blue.withOpacity(0.4),
-              blurRadius: 15,
-            ),
+            BoxShadow(color: Colors.blue.withOpacity(0.4), blurRadius: 15),
           ],
         ),
         child: Center(
@@ -249,9 +242,7 @@ class UiHelper {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Colors.blue, Colors.purple],
-          ),
+          gradient: const LinearGradient(colors: [Colors.blue, Colors.purple]),
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
@@ -310,9 +301,7 @@ class UiHelper {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Colors.blue, Colors.purple],
-          ),
+          gradient: const LinearGradient(colors: [Colors.blue, Colors.purple]),
           borderRadius: BorderRadius.circular(30),
         ),
         child: Row(
@@ -364,7 +353,9 @@ class UiHelper {
   // UiHelper.navigateWithSlideTransition(context, const ProfileScreen());
 
   static Future<T?> navigateWithSlideTransition<T>(
-      BuildContext context, Widget targetPage) {
+    BuildContext context,
+    Widget targetPage,
+  ) {
     return Navigator.push<T>(
       context,
       PageRouteBuilder(
@@ -373,14 +364,13 @@ class UiHelper {
         pageBuilder: (context, animation, secondaryAnimation) => targetPage,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const curve = Curves.easeInOut;
-          final tween = Tween(begin: const Offset(1.0, 0.0), end: Offset.zero)
-              .chain(CurveTween(curve: curve));
+          final tween = Tween(
+            begin: const Offset(1.0, 0.0),
+            end: Offset.zero,
+          ).chain(CurveTween(curve: curve));
           return SlideTransition(
             position: animation.drive(tween),
-            child: FadeTransition(
-              opacity: animation,
-              child: child,
-            ),
+            child: FadeTransition(opacity: animation, child: child),
           );
         },
       ),
@@ -389,13 +379,13 @@ class UiHelper {
 
   /// ✅ Custom TextField
   static Widget customTextField(
-      TextEditingController controller,
-      String hint,
-      IconData icon,
-      bool obscure, {
-        IconButton? suffixIcon,
-        Function(String)? onChanged,
-      }) {
+    TextEditingController controller,
+    String hint,
+    IconData icon,
+    bool obscure, {
+    IconButton? suffixIcon,
+    Function(String)? onChanged,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Builder(
@@ -447,8 +437,9 @@ class UiHelper {
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(vertical: 14),
-          shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
         ),
         child: Text(text, style: TextStyle(fontSize: 18)),
       ),
@@ -478,9 +469,7 @@ class UiHelper {
         behavior: SnackBarBehavior.floating,
         elevation: 6,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     );
 
@@ -498,7 +487,10 @@ class UiHelper {
         title: Text("Alert"),
         content: Text(message),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: Text("OK"))
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("OK"),
+          ),
         ],
       ),
     );
@@ -553,10 +545,23 @@ class UiHelper {
               decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.circular(25),
-                boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 6, offset: Offset(0, 3))],
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 6,
+                    offset: Offset(0, 3),
+                  ),
+                ],
               ),
               child: Center(
-                child: Text(text, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
               ),
             ),
           );
@@ -625,10 +630,8 @@ class UiHelper {
             child: CachedNetworkImage(
               imageUrl: url,
               fit: BoxFit.cover,
-              placeholder: (context, url) =>
-                  Center(child: UiHelper.loader()),
-              errorWidget: (context, url, error) =>
-              const Icon(Icons.error),
+              placeholder: (context, url) => Center(child: UiHelper.loader()),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
         );
@@ -637,12 +640,9 @@ class UiHelper {
   }
 
   // ✅ ADD THIS METHOD ONLY
-  static Widget scrollAnimation({
-    required Widget child,
-  }) {
+  static Widget scrollAnimation({required Widget child}) {
     return _ScrollAnimationWidget(child: child);
   }
-
 }
 
 class _ScrollAnimationWidget extends StatefulWidget {
@@ -651,8 +651,7 @@ class _ScrollAnimationWidget extends StatefulWidget {
   const _ScrollAnimationWidget({required this.child});
 
   @override
-  State<_ScrollAnimationWidget> createState() =>
-      _ScrollAnimationWidgetState();
+  State<_ScrollAnimationWidget> createState() => _ScrollAnimationWidgetState();
 }
 
 class _ScrollAnimationWidgetState extends State<_ScrollAnimationWidget> {
@@ -663,10 +662,10 @@ class _ScrollAnimationWidgetState extends State<_ScrollAnimationWidget> {
     return VisibilityDetector(
       key: Key(widget.hashCode.toString()),
       onVisibilityChanged: (info) {
-        if (info.visibleFraction > 0.2) {
-          setState(() => isVisible = true);
-        } else {
-          setState(() => isVisible = false);
+        if (!mounted) return;
+        final shouldShow = info.visibleFraction > 0.2;
+        if (shouldShow != isVisible) {
+          setState(() => isVisible = shouldShow);
         }
       },
       child: AnimatedOpacity(
@@ -681,4 +680,3 @@ class _ScrollAnimationWidgetState extends State<_ScrollAnimationWidget> {
     );
   }
 }
-
