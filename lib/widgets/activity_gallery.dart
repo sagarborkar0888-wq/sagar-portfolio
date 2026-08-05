@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../core/theme/app_theme.dart';
-import 'hover_tilt_card.dart';
 
 class ActivityMoment {
   final String id;
@@ -137,7 +136,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '📜 NSS & Volunteering',
       caption:
           'Speaking into a microphone during a public NSS community activity and youth engagement drive.',
-      imagePath: 'assets/images/sagar_NSS_photo_with mike 4.jpg',
+      imagePath: 'assets/images/sagar_NSS_photo_with_mike_4.jpg',
       fallbackIcon: Icons.record_voice_over_rounded,
       highlights: ['Public Speaking', 'NSS Leadership', 'Community Drive'],
     ),
@@ -737,166 +736,162 @@ class _ActivityGalleryWidgetState extends State<ActivityGalleryWidget> {
                 itemBuilder: (context, index) {
                   final moment = _filteredMoments[index];
 
-                  return HoverTiltCard(
-                    child: InkWell(
-                      onTap: () => _openLightboxDialog(moment),
-                      borderRadius: BorderRadius.circular(18),
-                      child: Container(
-                        decoration: BoxDecoration(
+                  return InkWell(
+                    onTap: () => _openLightboxDialog(moment),
+                    borderRadius: BorderRadius.circular(18),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: isDark
+                            ? AppTheme.darkBackground.withValues(alpha: 0.8)
+                            : Colors.grey.shade50,
+                        borderRadius: BorderRadius.circular(18),
+                        border: Border.all(
                           color: isDark
-                              ? AppTheme.darkBackground.withValues(alpha: 0.8)
-                              : Colors.grey.shade50,
-                          borderRadius: BorderRadius.circular(18),
-                          border: Border.all(
-                            color: isDark
-                                ? Colors.white.withValues(alpha: 0.08)
-                                : Colors.black.withValues(alpha: 0.08),
+                              ? Colors.white.withValues(alpha: 0.08)
+                              : Colors.black.withValues(alpha: 0.08),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Image Container with Badge & Year
+                          Expanded(
+                            child: Stack(
+                              children: [
+                                Hero(
+                                  tag: 'activity_hero_${moment.id}',
+                                  child: ClipRRect(
+                                    borderRadius: const BorderRadius.vertical(
+                                      top: Radius.circular(18),
+                                    ),
+                                    child: SizedBox(
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      child: Image.asset(
+                                        moment.imagePath,
+                                        fit: moment.imageFit,
+                                        alignment: moment.imageAlignment,
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  gradient: LinearGradient(
+                                                    colors: [
+                                                      AppTheme.primaryBlue
+                                                          .withValues(
+                                                            alpha: 0.25,
+                                                          ),
+                                                      AppTheme.secondaryPurple
+                                                          .withValues(
+                                                            alpha: 0.25,
+                                                          ),
+                                                    ],
+                                                    begin: Alignment.topLeft,
+                                                    end: Alignment.bottomRight,
+                                                  ),
+                                                ),
+                                                child: Center(
+                                                  child: Icon(
+                                                    moment.fallbackIcon,
+                                                    size: 48,
+                                                    color: AppTheme.primaryBlue,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                // Badge Pill
+                                Positioned(
+                                  top: 10,
+                                  left: 10,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 10,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      gradient: AppTheme.primaryGradient,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Text(
+                                      moment.badgeText,
+                                      style: const TextStyle(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                // Year Pill
+                                Positioned(
+                                  top: 10,
+                                  right: 10,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withValues(
+                                        alpha: 0.65,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Text(
+                                      moment.year,
+                                      style: const TextStyle(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Image Container with Badge & Year
-                            Expanded(
-                              child: Stack(
-                                children: [
-                                  Hero(
-                                    tag: 'activity_hero_${moment.id}',
-                                    child: ClipRRect(
-                                      borderRadius: const BorderRadius.vertical(
-                                        top: Radius.circular(18),
-                                      ),
-                                      child: SizedBox(
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        child: Image.asset(
-                                          moment.imagePath,
-                                          fit: moment.imageFit,
-                                          alignment: moment.imageAlignment,
-                                          errorBuilder:
-                                              (context, error, stackTrace) {
-                                                return Container(
-                                                  decoration: BoxDecoration(
-                                                    gradient: LinearGradient(
-                                                      colors: [
-                                                        AppTheme.primaryBlue
-                                                            .withValues(
-                                                              alpha: 0.25,
-                                                            ),
-                                                        AppTheme.secondaryPurple
-                                                            .withValues(
-                                                              alpha: 0.25,
-                                                            ),
-                                                      ],
-                                                      begin: Alignment.topLeft,
-                                                      end:
-                                                          Alignment.bottomRight,
-                                                    ),
-                                                  ),
-                                                  child: Center(
-                                                    child: Icon(
-                                                      moment.fallbackIcon,
-                                                      size: 48,
-                                                      color:
-                                                          AppTheme.primaryBlue,
-                                                    ),
-                                                  ),
-                                                );
-                                              },
-                                        ),
-                                      ),
-                                    ),
-                                  ),
 
-                                  // Badge Pill
-                                  Positioned(
-                                    top: 10,
-                                    left: 10,
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 10,
-                                        vertical: 4,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        gradient: AppTheme.primaryGradient,
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: Text(
-                                        moment.badgeText,
-                                        style: const TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
+                          // Card Details
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  moment.title,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: isDark
+                                        ? Colors.white
+                                        : Colors.black87,
                                   ),
-
-                                  // Year Pill
-                                  Positioned(
-                                    top: 10,
-                                    right: 10,
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 8,
-                                        vertical: 4,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: Colors.black.withValues(
-                                          alpha: 0.65,
-                                        ),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Text(
-                                        moment.year,
-                                        style: const TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  moment.caption,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: isDark
+                                        ? Colors.white60
+                                        : Colors.black54,
+                                    height: 1.3,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-
-                            // Card Details
-                            Padding(
-                              padding: const EdgeInsets.all(12),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    moment.title,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                      color: isDark
-                                          ? Colors.white
-                                          : Colors.black87,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    moment.caption,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: isDark
-                                          ? Colors.white60
-                                          : Colors.black54,
-                                      height: 1.3,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   );

@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../helpers/ui_helper.dart';
+import '../widgets/contact/contact_action_bar.dart';
+import '../widgets/contact/contact_availability_card.dart';
+import '../widgets/contact/contact_featured_project_card.dart';
+import '../widgets/contact/contact_form_card.dart';
+import '../widgets/contact/contact_hero.dart';
+import '../widgets/contact/contact_info_card.dart';
+import '../widgets/contact/contact_primary_cta.dart';
+import '../widgets/contact/contact_services_grid.dart';
+import '../widgets/contact/contact_workflow_card.dart';
 import '../widgets/scroll_progress_indicator.dart';
 
 class ContactSection extends StatefulWidget {
@@ -10,11 +19,18 @@ class ContactSection extends StatefulWidget {
   State<ContactSection> createState() => _ContactSectionState();
 }
 
-class _ContactSectionState extends State<ContactSection> {
+class _ContactSectionState extends State<ContactSection>
+    with AutomaticKeepAliveClientMixin {
+  final _formKey = GlobalKey<FormState>();
   final _scrollController = ScrollController();
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final messageController = TextEditingController();
+
+  bool _isSubmitting = false;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void dispose() {
@@ -33,390 +49,241 @@ class _ContactSectionState extends State<ContactSection> {
     }
   }
 
+  void _submitFormToWhatsApp() async {
+    if (!(_formKey.currentState?.validate() ?? false)) {
+      UiHelper.showSnackbar(context, 'Please fill all required fields');
+      return;
+    }
+
+    setState(() => _isSubmitting = true);
+
+    final message =
+        '''
+👋 *New Project Inquiry*
+
+👤 Name: ${nameController.text.trim()}
+📧 Email: ${emailController.text.trim()}
+
+💬 Message:
+${messageController.text.trim()}
+
+---
+Sent from Portfolio App 🚀
+''';
+
+    final url =
+        "https://wa.me/918788357452?text=${Uri.encodeComponent(message)}";
+
+    await Future.delayed(const Duration(milliseconds: 300));
+    if (mounted) {
+      setState(() => _isSubmitting = false);
+    }
+    _launch(url);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
+    super.build(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bgColor = isDark ? const Color(0xFF090A0F) : const Color(0xFFF8FAFC);
+    final textColor = isDark ? Colors.white : const Color(0xFF0F172A);
 
+    return Scaffold(
+      backgroundColor: bgColor,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: bgColor,
         elevation: 0,
-        title: const Text(
+        scrolledUnderElevation: 0,
+        title: Text(
           "Contact",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, color: textColor),
         ),
         centerTitle: true,
       ),
-
       body: Stack(
         children: [
           SingleChildScrollView(
             controller: _scrollController,
-            padding: const EdgeInsets.all(20),
-
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                /// 🔥 HEADER (Premium Gradient Card)
-                /// 🔥 IMAGE
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white.withOpacity(0.3),
-                        blurRadius: 20,
-                        spreadRadius: 3,
-                      ),
-                    ],
-                  ),
-                  child: const CircleAvatar(
-                    radius: 60,
-                    backgroundImage: AssetImage(
-                      'assets/images/sagar_borkar_1.jpeg',
-                    ),
-                  ),
-                ),
-
-                UiHelper.verticalSpace(15),
-
-                const Text(
-                  "Let’s Work Together 🚀",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-
-                const SizedBox(height: 10),
-
-                const Text(
-                  "Turning ideas into powerful digital experiences.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white70),
-                ),
-                UiHelper.verticalSpace(20),
-
-                /// 🔥 WHAT I OFFER
-                UiHelper.sectionCard(
-                  title: "💼 Services I Offer",
-                  items: [
-                    "Full Stack App Development",
-                    "Modern UI/UX Design",
-                    "Backend Integration (Supabase, APIs)",
-                    "Performance Optimization & Bug Fixing",
-                    "Play Store Deployment",
-                  ],
-                ),
-
-                UiHelper.verticalSpace(20),
-
-                /// 🔥 PROJECT INFO
-                UiHelper.sectionCard(
-                  title: "🚀 Featured Project",
-                  highlight: true, // 🔥 makes it stand out
-                  items: [
-                    "SocialProX – A social media platform",
-                    "Features: Posts, Likes, Comments, Chat",
-                    "Tech: Flutter + Supabase + Cloudinary",
-                  ],
-                ),
-                UiHelper.verticalSpace(20),
-
-                UiHelper.sectionCard(
-                  title: "⏳ Work Availability",
-                  highlight: true,
-                  items: [
-                    "Available for freelance & collaboration",
-                    "Selective projects (quality focus)",
-                    "Open to startup ideas & partnerships",
-                  ],
-                ),
-
-                UiHelper.verticalSpace(20),
-
-                UiHelper.verticalSpace(20),
-
-                /// 🔥 QUICK ACTIONS (Premium Chips)
-                /// 🔥 CONTACT INFO CARD
-                UiHelper.sectionCard(
-                  title: "📍 Contact Info",
-                  items: [
-                    "📧 Email: sagarborkar0888@email.com",
-                    "📱 Phone: +91 8788357452",
-                    "🌍 Location: India",
-                  ],
-                ),
-                UiHelper.verticalSpace(15),
-
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1200),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    UiHelper.chipButton(
-                      text: "Instagram",
-                      onTap: () => _launch(
-                        "https://www.instagram.com/sagar_borkar_sg?igsh=bmM4cG9tbjh2ZGFm",
-                      ),
+                    // 1. HERO HEADER
+                    ContactHero(isDark: isDark),
+                    const SizedBox(height: 28),
+
+                    // 2. RESPONSIVE ADAPTIVE LAYOUT
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        final width = constraints.maxWidth;
+
+                        if (width >= 1080) {
+                          // Desktop / Ultra-wide 2-Column
+                          return Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                flex: 11,
+                                child: Column(
+                                  children: [
+                                    ContactInfoCard(
+                                      isDark: isDark,
+                                      onLaunch: _launch,
+                                    ),
+                                    const SizedBox(height: 20),
+                                    ContactServicesGrid(isDark: isDark),
+                                    const SizedBox(height: 20),
+                                    ContactFeaturedProjectCard(
+                                      isDark: isDark,
+                                      onLaunch: _launch,
+                                    ),
+                                    const SizedBox(height: 20),
+                                    ContactAvailabilityCard(isDark: isDark),
+                                    const SizedBox(height: 20),
+                                    ContactWorkflowCard(isDark: isDark),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: 24),
+                              Expanded(
+                                flex: 10,
+                                child: Column(
+                                  children: [
+                                    ContactFormCard(
+                                      isDark: isDark,
+                                      formKey: _formKey,
+                                      nameController: nameController,
+                                      emailController: emailController,
+                                      messageController: messageController,
+                                      isSubmitting: _isSubmitting,
+                                      onSubmit: _submitFormToWhatsApp,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        } else if (width >= 720) {
+                          // Tablet Balanced 2-Column
+                          return Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Column(
+                                  children: [
+                                    ContactInfoCard(
+                                      isDark: isDark,
+                                      onLaunch: _launch,
+                                    ),
+                                    const SizedBox(height: 20),
+                                    ContactServicesGrid(isDark: isDark),
+                                    const SizedBox(height: 20),
+                                    ContactFeaturedProjectCard(
+                                      isDark: isDark,
+                                      onLaunch: _launch,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: 20),
+                              Expanded(
+                                flex: 1,
+                                child: Column(
+                                  children: [
+                                    ContactFormCard(
+                                      isDark: isDark,
+                                      formKey: _formKey,
+                                      nameController: nameController,
+                                      emailController: emailController,
+                                      messageController: messageController,
+                                      isSubmitting: _isSubmitting,
+                                      onSubmit: _submitFormToWhatsApp,
+                                    ),
+                                    const SizedBox(height: 20),
+                                    ContactAvailabilityCard(isDark: isDark),
+                                    const SizedBox(height: 20),
+                                    ContactWorkflowCard(isDark: isDark),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        } else {
+                          // Mobile Single Column Stack
+                          return Column(
+                            children: [
+                              ContactInfoCard(
+                                isDark: isDark,
+                                onLaunch: _launch,
+                              ),
+                              const SizedBox(height: 20),
+                              ContactServicesGrid(isDark: isDark),
+                              const SizedBox(height: 20),
+                              ContactFeaturedProjectCard(
+                                isDark: isDark,
+                                onLaunch: _launch,
+                              ),
+                              const SizedBox(height: 20),
+                              ContactAvailabilityCard(isDark: isDark),
+                              const SizedBox(height: 20),
+                              ContactWorkflowCard(isDark: isDark),
+                              const SizedBox(height: 24),
+                              ContactFormCard(
+                                isDark: isDark,
+                                formKey: _formKey,
+                                nameController: nameController,
+                                emailController: emailController,
+                                messageController: messageController,
+                                isSubmitting: _isSubmitting,
+                                onSubmit: _submitFormToWhatsApp,
+                              ),
+                            ],
+                          );
+                        }
+                      },
                     ),
 
-                    UiHelper.chipButton(
-                      text: "LinkedIn",
-                      onTap: () => _launch(
-                        "https://www.linkedin.com/in/sagar-borkar-724ba7315?utm_source=sha"
-                        "re&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-                      ),
-                    ),
+                    const SizedBox(height: 28),
 
-                    UiHelper.chipButton(
-                      text: "Facebook",
-                      onTap: () =>
-                          _launch("https://www.facebook.com/share/1KDS9vSibg/"),
-                    ),
-                  ],
-                ),
+                    // 3. QUICK CONTACT ACTIONS BAR
+                    ContactActionBar(isDark: isDark, onLaunch: _launch),
+                    const SizedBox(height: 28),
 
-                UiHelper.verticalSpace(20),
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    UiHelper.chipButton(
-                      text: "Email",
-                      onTap: () => _launch("mailto:sagarborkar0888@email.com"),
-                    ),
+                    // 4. PRIMARY CTA AREA
+                    ContactPrimaryCta(isDark: isDark, onLaunch: _launch),
+                    const SizedBox(height: 24),
 
-                    UiHelper.chipButton(
-                      text: "Call",
-                      onTap: () => _launch("tel:+918788357452"),
-                    ),
-
-                    UiHelper.chipButton(
-                      text: "GitHub",
-                      onTap: () =>
-                          _launch("https://github.com/sagarborkar0888-wq"),
-                    ),
-                  ],
-                ),
-
-                UiHelper.verticalSpace(30),
-
-                /// 🔥 FORM CARD (Glass effect)
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.05),
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(color: Colors.white24),
-                  ),
-                  child: Column(
-                    children: [
-                      UiHelper.customTextField(
-                        nameController,
-                        "Your Name",
-                        Icons.person,
-                        false,
-                      ),
-
-                      UiHelper.customTextField(
-                        emailController,
-                        "Your Email",
-                        Icons.email,
-                        false,
-                      ),
-
-                      /// MESSAGE FIELD
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
-                        ),
-                        child: TextField(
-                          controller: messageController,
-                          maxLines: 5,
-                          style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                            hintText: "Your Message",
-                            hintStyle: const TextStyle(color: Colors.white70),
-                            filled: true,
-                            fillColor: Colors.white10,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
+                    // 5. RESPONSE TIME FOOTER
+                    Center(
+                      child: Text(
+                        "⏳ Usually respond within 24 hours",
+                        style: TextStyle(
+                          color: isDark
+                              ? Colors.white54
+                              : const Color(0xFF64748B),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-
-                      UiHelper.verticalSpace(20),
-
-                      /// 🔥 TRUST NOTE
-                      const Text(
-                        "⚡ build scalable, production-ready apps.\n"
-                        "💎 Focused on quality, performance & user experience.",
-                        style: TextStyle(color: Colors.white70, fontSize: 13),
-                      ),
-
-                      UiHelper.verticalSpace(15),
-
-                      /// 🔥 PREMIUM BUTTON
-                      UiHelper.glowButton(
-                        text: "Start Project on Whatsapp 🚀",
-                        onTap: () {
-                          if (nameController.text.isEmpty ||
-                              emailController.text.isEmpty ||
-                              messageController.text.isEmpty) {
-                            UiHelper.showSnackbar(
-                              context,
-                              'Please fill all fields',
-                            );
-                            return;
-                          }
-
-                          final message =
-                              """
-👋 *New Project Inquiry*
-
-👤 Name: ${nameController.text}
-📧 Email: ${emailController.text}
-
-💬 Message:
-${messageController.text}
-
----
-Sent from Portfolio App 🚀
-""";
-
-                          final url =
-                              "https://wa.me/918788357452?text=${Uri.encodeComponent(message)}";
-
-                          _launch(url);
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-
-                UiHelper.verticalSpace(30),
-
-                /// 🔥 WORK INFO
-                UiHelper.sectionCard(
-                  title: "⏳ Project Workflow",
-                  items: [
-                    "Response time: Within 24 hours",
-                    "Working hours: Flexible",
-                    "Limited projects for maximum quality",
+                    ),
+                    const SizedBox(height: 16),
                   ],
                 ),
-                UiHelper.verticalSpace(15),
-
-                UiHelper.sectionCard(
-                  title: "⚡ Response Time",
-                  items: [
-                    "I reply within 24 hours",
-                    "Priority support for active projects",
-                  ],
-                ),
-
-                UiHelper.verticalSpace(20),
-
-                UiHelper.premiumButton(
-                  text: "🔥 Start a Project",
-                  onTap: () {
-                    _launch(
-                      "https://wa.me/918788357452?text=🚀%20Project%20Inquiry%0A%0AHi%20Sagar%20👋%0A%0AI%20found%20your%20portfolio%20and%20I%E2%80%99m%20interested%"
-                      "20in%20working%20with%20you.%0A%0A📝%20Project%20Details:%0A%E2%80%A2%20Project%20Type:%20(App%20/%20Website%20/%20Both)%0A%E2%80%A2%20Featur"
-                      "es%20Required:%20%0A%E2%80%A2%20Budget:%20%0A%E2%80%A2%20Timeline:%20%0A%0A💡%20Additional%20Information:%0A(Briefly%20explain%20your%20idea%20"
-                      "or%20goal)%0A%0ALooking%20forward%20to%20your%20response.%0A%0AThank%20you.",
-                    );
-                  },
-                ),
-
-                UiHelper.verticalSpace(10),
-
-                UiHelper.premiumButton(
-                  text: " Let’s Talk 💬",
-                  onTap: () {
-                    _launch(
-                      "https://wa.me/918788357452?text=Hi%20Sagar%20👋%0A%0AI%20came%20across%20your%20portfolio%20and%20I%E2%80%99d%20like%20to%20connect%20with%20you."
-                      "%0A%0AI%20have%20a%20small%20idea%20and%20wanted%20to%20discuss%20it%20with%20you.%0A%0ACan%20we%20chat%3F%20😊",
-                    );
-                  },
-                ),
-
-                const SizedBox(height: 30),
-
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    UiHelper.socialButton(
-                      text: "Instagram",
-                      icon: Icons.camera_alt,
-                      url:
-                          "https://www.instagram.com/sagar_borkar_sg?igsh=bmM4cG9tbjh2ZGFm",
-                    ),
-
-                    UiHelper.socialButton(
-                      text: "LinkedIn",
-                      icon: Icons.work,
-                      url: "https://www.linkedin.com/in/sagar-borkar-724ba7315",
-                    ),
-
-                    UiHelper.socialButton(
-                      text: "Facebook",
-                      icon: Icons.facebook,
-                      url: "https://www.facebook.com/share/1KDS9vSibg/",
-                    ),
-
-                    UiHelper.socialButton(
-                      text: "GitHub",
-                      icon: Icons.code,
-                      url: "https://github.com/sagarborkar0888-wq",
-                    ),
-
-                    UiHelper.socialButton(
-                      text: "WhatsApp",
-                      icon: Icons.chat,
-                      url:
-                          "https://wa.me/918788357452?text=🚀%20Project%20Inquiry%0A%0AHi%20Sagar%20👋%0A%0AI%20found%20your%20portfolio%20and%20I%E2%80%99m%20interested%"
-                          "20in%20working%20with%20you.%0A%0A📝%20Project%20Details:%0A%E2%80%A2%20Project%20Type:%20(App%20/%20Website%20/%20Both)%0A%E2%80%A2%20Featur"
-                          "es%20Required:%20%0A%E2%80%A2%20Budget:%20%0A%E2%80%A2%20Timeline:%20%0A%0A💡%20Additional%20Information:%0A(Briefly%20explain%20your%20idea%20"
-                          "or%20goal)%0A%0ALooking%20forward%20to%20your%20response.%0A%0AThank%20you.",
-                    ),
-
-                    UiHelper.socialButton(
-                      text: "Email",
-                      icon: Icons.email,
-                      url: "mailto:sagarborkar0888@email.com",
-                    ),
-
-                    UiHelper.socialButton(
-                      text: "Call",
-                      icon: Icons.call,
-                      url: "tel:+918788357452",
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 30),
-
-                /// 🔥 FOOTER
-                const Center(
-                  child: Text(
-                    "Response within 24 hours ⏳",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
+
+          // PINNED VERTICAL SCROLL PROGRESS BAR
           Positioned(
             top: 0,
-            left: 0,
+            bottom: 0,
             right: 0,
-            child: TopScrollProgressBar(scrollController: _scrollController),
+            child: ScrollProgressIndicator(scrollController: _scrollController),
           ),
         ],
       ),

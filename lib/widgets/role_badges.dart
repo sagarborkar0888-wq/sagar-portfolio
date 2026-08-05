@@ -7,7 +7,7 @@ class RoleBadges extends StatelessWidget {
   static const List<Map<String, dynamic>> roles = [
     {'title': 'Full Stack App Developer', 'icon': Icons.code_rounded},
     {'title': 'Flutter & Android Lead', 'icon': Icons.android_rounded},
-    {'title': 'Founder @ SocialProX', 'icon': Icons.rocket_launch_rounded},
+    {'title': 'Founder of SocialProX', 'icon': Icons.rocket_launch_rounded},
   ];
 
   @override

@@ -14,7 +14,7 @@ class _RotatingRoleWidgetState extends State<RotatingRoleWidget> {
     'Flutter Developer',
     'Android Developer',
     'Full Stack App Developer',
-    'Founder @ SocialProX',
+    'Founder of SocialProX',
   ];
 
   int _currentIndex = 0;

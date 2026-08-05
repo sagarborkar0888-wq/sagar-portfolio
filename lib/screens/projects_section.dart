@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../core/theme/app_theme.dart';
-import '../widgets/hover_tilt_card.dart';
 import '../widgets/scroll_progress_indicator.dart';
 
 class ProjectItem {
@@ -516,141 +515,139 @@ class _ProjectsSectionState extends State<ProjectsSection> {
     bool isDark,
     bool isMobile,
   ) {
-    return HoverTiltCard(
-      child: InkWell(
-        onTap: () => _openProjectDetails(project),
-        borderRadius: BorderRadius.circular(20),
-        child: Container(
-          width: double.infinity,
-          padding: EdgeInsets.all(isMobile ? 14 : 20),
-          decoration: BoxDecoration(
-            color: isDark ? AppTheme.darkSurface : Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: AppTheme.primaryBlue.withValues(alpha: 0.3),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: AppTheme.primaryBlue.withValues(
-                  alpha: isDark ? 0.12 : 0.06,
-                ),
-                blurRadius: 20,
-                spreadRadius: 1,
-              ),
-            ],
+    return InkWell(
+      onTap: () => _openProjectDetails(project),
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.all(isMobile ? 14 : 20),
+        decoration: BoxDecoration(
+          color: isDark ? AppTheme.darkSurface : Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: AppTheme.primaryBlue.withValues(alpha: 0.3),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Top Status Row (Wrap prevents horizontal overflow on narrow mobile screens)
-              Wrap(
-                spacing: 8,
-                runSpacing: 6,
-                alignment: WrapAlignment.spaceBetween,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      gradient: AppTheme.primaryGradient,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: const [
-                        Icon(Icons.star_rounded, size: 13, color: Colors.white),
-                        SizedBox(width: 4),
-                        Text(
-                          'Flagship Featured Project',
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+          boxShadow: [
+            BoxShadow(
+              color: AppTheme.primaryBlue.withValues(
+                alpha: isDark ? 0.12 : 0.06,
+              ),
+              blurRadius: 20,
+              spreadRadius: 1,
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Top Status Row (Wrap prevents horizontal overflow on narrow mobile screens)
+            Wrap(
+              spacing: 8,
+              runSpacing: 6,
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    gradient: AppTheme.primaryGradient,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Icon(Icons.star_rounded, size: 13, color: Colors.white),
+                      SizedBox(width: 4),
+                      Text(
+                        'Flagship Featured Project',
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 3,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppTheme.primaryBlue.withValues(alpha: 0.12),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      project.status,
-                      style: const TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
-                        color: AppTheme.primaryBlue,
                       ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 3,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppTheme.primaryBlue.withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    project.status,
+                    style: const TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      color: AppTheme.primaryBlue,
                     ),
                   ),
-                ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+
+            // Responsive Content Layout
+            if (isMobile) ...[
+              // Image Container
+              ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: Container(
+                  height: 130,
+                  width: double.infinity,
+                  color: isDark
+                      ? AppTheme.darkBackground
+                      : Colors.grey.shade100,
+                  child: Image.asset(
+                    project.imagePath,
+                    fit: BoxFit.contain,
+                    alignment: Alignment.center,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const Icon(Icons.apps_rounded, size: 40),
+                  ),
+                ),
               ),
               const SizedBox(height: 12),
 
-              // Responsive Content Layout
-              if (isMobile) ...[
-                // Image Container
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(14),
-                  child: Container(
-                    height: 130,
-                    width: double.infinity,
-                    color: isDark
-                        ? AppTheme.darkBackground
-                        : Colors.grey.shade100,
-                    child: Image.asset(
-                      project.imagePath,
-                      fit: BoxFit.contain,
-                      alignment: Alignment.center,
-                      errorBuilder: (context, error, stackTrace) =>
-                          const Icon(Icons.apps_rounded, size: 40),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 12),
-
-                // Details
-                _buildFeaturedDetails(project, isDark),
-              ] else ...[
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Image Container
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(14),
-                      child: Container(
-                        height: 160,
-                        width: 170,
-                        color: isDark
-                            ? AppTheme.darkBackground
-                            : Colors.grey.shade100,
-                        child: Image.asset(
-                          project.imagePath,
-                          fit: BoxFit.contain,
-                          alignment: Alignment.center,
-                          errorBuilder: (context, error, stackTrace) =>
-                              const Icon(Icons.apps_rounded, size: 48),
-                        ),
+              // Details
+              _buildFeaturedDetails(project, isDark),
+            ] else ...[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Image Container
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(14),
+                    child: Container(
+                      height: 160,
+                      width: 170,
+                      color: isDark
+                          ? AppTheme.darkBackground
+                          : Colors.grey.shade100,
+                      child: Image.asset(
+                        project.imagePath,
+                        fit: BoxFit.contain,
+                        alignment: Alignment.center,
+                        errorBuilder: (context, error, stackTrace) =>
+                            const Icon(Icons.apps_rounded, size: 48),
                       ),
                     ),
-                    const SizedBox(width: 18),
+                  ),
+                  const SizedBox(width: 18),
 
-                    // Details
-                    Expanded(child: _buildFeaturedDetails(project, isDark)),
-                  ],
-                ),
-              ],
+                  // Details
+                  Expanded(child: _buildFeaturedDetails(project, isDark)),
+                ],
+              ),
             ],
-          ),
+          ],
         ),
       ),
     );
@@ -746,138 +743,134 @@ class _ProjectsSectionState extends State<ProjectsSection> {
     bool isDark,
     bool isMobile,
   ) {
-    return HoverTiltCard(
-      child: InkWell(
-        onTap: () => _openProjectDetails(project),
-        borderRadius: BorderRadius.circular(16),
-        child: Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: isDark ? AppTheme.darkSurface : Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: isDark
-                  ? Colors.white.withValues(alpha: 0.08)
-                  : Colors.black.withValues(alpha: 0.08),
+    return InkWell(
+      onTap: () => _openProjectDetails(project),
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: isDark ? AppTheme.darkSurface : Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: isDark
+                ? Colors.white.withValues(alpha: 0.08)
+                : Colors.black.withValues(alpha: 0.08),
+          ),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Project Image Thumbnail
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Container(
+                width: 80,
+                height: 80,
+                color: isDark ? AppTheme.darkBackground : Colors.grey.shade100,
+                child: Image.asset(
+                  project.imagePath,
+                  fit: BoxFit.contain,
+                  alignment: Alignment.center,
+                  errorBuilder: (context, error, stackTrace) =>
+                      const Center(child: Icon(Icons.apps_rounded, size: 32)),
+                ),
+              ),
             ),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Project Image Thumbnail
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  width: 80,
-                  height: 80,
-                  color: isDark
-                      ? AppTheme.darkBackground
-                      : Colors.grey.shade100,
-                  child: Image.asset(
-                    project.imagePath,
-                    fit: BoxFit.contain,
-                    alignment: Alignment.center,
-                    errorBuilder: (context, error, stackTrace) =>
-                        const Center(child: Icon(Icons.apps_rounded, size: 32)),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 12),
+            const SizedBox(width: 12),
 
-              // Details
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            project.title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: isDark ? Colors.white : Colors.black87,
-                            ),
+            // Details
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          project.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: isDark ? Colors.white : Colors.black87,
                           ),
                         ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 7,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            color: isDark
-                                ? Colors.white.withValues(alpha: 0.08)
-                                : Colors.black.withValues(alpha: 0.06),
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Text(
-                            project.status,
-                            style: TextStyle(
-                              fontSize: 9,
-                              fontWeight: FontWeight.bold,
-                              color: AppTheme.primaryBlue,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 2),
-
-                    Text(
-                      project.subtitle,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: isDark ? Colors.white60 : Colors.black54,
                       ),
-                    ),
-                    const SizedBox(height: 6),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 7,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: isDark
+                              ? Colors.white.withValues(alpha: 0.08)
+                              : Colors.black.withValues(alpha: 0.06),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          project.status,
+                          style: TextStyle(
+                            fontSize: 9,
+                            fontWeight: FontWeight.bold,
+                            color: AppTheme.primaryBlue,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 2),
 
-                    // Technologies Row
-                    Wrap(
-                      spacing: 4,
-                      runSpacing: 4,
-                      children: project.technologies.map((tech) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            color: AppTheme.primaryBlue.withValues(
-                              alpha: isDark ? 0.12 : 0.06,
-                            ),
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Text(
-                            tech,
-                            style: const TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w600,
-                              color: AppTheme.primaryBlue,
-                            ),
-                          ),
-                        );
-                      }).toList(),
+                  Text(
+                    project.subtitle,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: isDark ? Colors.white60 : Colors.black54,
                     ),
-                  ],
-                ),
-              ),
+                  ),
+                  const SizedBox(height: 6),
 
-              const SizedBox(width: 8),
-              Icon(
-                Icons.arrow_forward_ios_rounded,
-                size: 13,
-                color: isDark ? Colors.white38 : Colors.black38,
+                  // Technologies Row
+                  Wrap(
+                    spacing: 4,
+                    runSpacing: 4,
+                    children: project.technologies.map((tech) {
+                      return Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppTheme.primaryBlue.withValues(
+                            alpha: isDark ? 0.12 : 0.06,
+                          ),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          tech,
+                          style: const TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                            color: AppTheme.primaryBlue,
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+
+            const SizedBox(width: 8),
+            Icon(
+              Icons.arrow_forward_ios_rounded,
+              size: 13,
+              color: isDark ? Colors.white38 : Colors.black38,
+            ),
+          ],
         ),
       ),
     );

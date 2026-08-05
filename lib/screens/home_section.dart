@@ -9,7 +9,6 @@ import '../widgets/animated_stat_counter.dart';
 import '../widgets/animated_typing_role.dart';
 import '../widgets/back_to_top_button.dart';
 import '../widgets/career_timeline.dart';
-import '../widgets/hover_tilt_card.dart';
 import '../widgets/responsive_navbar.dart';
 import '../widgets/scroll_progress_indicator.dart';
 import 'about_section.dart';
@@ -141,11 +140,25 @@ class _HomeSectionState extends ConsumerState<HomeSection> {
                                 spreadRadius: 8,
                               ),
                             ],
-                            image: const DecorationImage(
-                              image: AssetImage(
-                                'assets/images/sagar_borkar_Sg.jpg',
-                              ),
+                          ),
+                          child: ClipOval(
+                            child: Image.asset(
+                              'assets/images/sagar_borkar_Sg.jpg',
+                              width: 135,
+                              height: 135,
                               fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Container(
+                                  color: AppTheme.primaryBlue.withValues(
+                                    alpha: 0.2,
+                                  ),
+                                  child: const Icon(
+                                    Icons.person_rounded,
+                                    size: 64,
+                                    color: AppTheme.primaryBlue,
+                                  ),
+                                );
+                              },
                             ),
                           ),
                         ),
@@ -304,27 +317,24 @@ class _HomeSectionState extends ConsumerState<HomeSection> {
                   const SizedBox(height: 50),
 
                   // 🔥 ABOUT SECTION SUMMARY
+                  // 🔥 ABOUT SECTION SUMMARY
                   Container(
                     key: _aboutKey,
                     child: Column(
                       children: [
                         UiHelper.scrollAnimation(
-                          child: HoverTiltCard(
-                            child: _sectionCard(
-                              "💡 About Me",
-                              "Full Stack App Developer | UI/UX Enthusiast | Building SocialProX",
-                              Icons.person,
-                              isDark,
-                            ),
-                          ),
-                        ),
-                        HoverTiltCard(
                           child: _sectionCard(
-                            "🚀 My Mission",
-                            "Creating apps that bring real impact and freedom.",
-                            Icons.rocket_launch,
+                            "💡 About Me",
+                            "Full Stack App Developer | UI/UX Enthusiast | Building SocialProX",
+                            Icons.person,
                             isDark,
                           ),
+                        ),
+                        _sectionCard(
+                          "🚀 My Mission",
+                          "Creating apps that bring real impact and freedom.",
+                          Icons.rocket_launch,
+                          isDark,
                         ),
                       ],
                     ),
@@ -343,13 +353,11 @@ class _HomeSectionState extends ConsumerState<HomeSection> {
                   Container(
                     key: _servicesKey,
                     child: UiHelper.scrollAnimation(
-                      child: HoverTiltCard(
-                        child: _sectionCard(
-                          "💼 What I Do",
-                          "• Mobile App Development\n• UI Design\n• Cross-platform Apps",
-                          Icons.work,
-                          isDark,
-                        ),
+                      child: _sectionCard(
+                        "💼 What I Do",
+                        "• Mobile App Development\n• UI Design\n• Cross-platform Apps",
+                        Icons.work,
+                        isDark,
                       ),
                     ),
                   ),
@@ -359,13 +367,11 @@ class _HomeSectionState extends ConsumerState<HomeSection> {
                     key: _projectsKey,
                     child: Column(
                       children: [
-                        HoverTiltCard(
-                          child: _sectionCard(
-                            "🔥 SocialProX",
-                            "Built a social media app with chat, feed & media sharing",
-                            Icons.verified,
-                            isDark,
-                          ),
+                        _sectionCard(
+                          "🔥 SocialProX",
+                          "Built a social media app with chat, feed & media sharing",
+                          Icons.verified,
+                          isDark,
                         ),
                       ],
                     ),
@@ -376,32 +382,26 @@ class _HomeSectionState extends ConsumerState<HomeSection> {
                     key: _skillsKey,
                     child: Column(
                       children: [
-                        HoverTiltCard(
-                          child: _sectionCard(
-                            "🧠 Tech Stack",
-                            "Flutter • Dart • Supabase • Cloudinary • REST APIs",
-                            Icons.memory,
-                            isDark,
-                          ),
+                        _sectionCard(
+                          "🧠 Tech Stack",
+                          "Flutter • Dart • Supabase • Cloudinary • REST APIs",
+                          Icons.memory,
+                          isDark,
                         ),
                         // Animated Stat Counter Grid
                         const AnimatedStatCounterGrid(),
 
-                        HoverTiltCard(
-                          child: _sectionCard(
-                            "💬 Client Feedback",
-                            "“Clean UI & smooth experience. Impressive work!”",
-                            Icons.star,
-                            isDark,
-                          ),
+                        _sectionCard(
+                          "💬 Client Feedback",
+                          "“Clean UI & smooth experience. Impressive work!”",
+                          Icons.star,
+                          isDark,
                         ),
-                        HoverTiltCard(
-                          child: _sectionCard(
-                            "📈 Growth",
-                            "Focused on building, improving, and scaling real apps",
-                            Icons.trending_up,
-                            isDark,
-                          ),
+                        _sectionCard(
+                          "📈 Growth",
+                          "Focused on building, improving, and scaling real apps",
+                          Icons.trending_up,
+                          isDark,
                         ),
                       ],
                     ),
@@ -651,10 +651,18 @@ class _HomeSectionState extends ConsumerState<HomeSection> {
               children: [
                 Row(
                   children: [
-                    const CircleAvatar(
-                      radius: 18,
-                      backgroundImage: AssetImage(
+                    ClipOval(
+                      child: Image.asset(
                         'assets/images/sagar_borkar_Sg.jpg',
+                        width: 36,
+                        height: 36,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return const CircleAvatar(
+                            radius: 18,
+                            child: Icon(Icons.person_rounded, size: 18),
+                          );
+                        },
                       ),
                     ),
                     const SizedBox(width: 10),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../core/theme/app_theme.dart';
-import '../widgets/hover_tilt_card.dart';
 import '../widgets/scroll_progress_indicator.dart';
 
 class PricingSection extends StatefulWidget {
@@ -703,176 +702,177 @@ Thank you!
     required bool isRecommended,
     required bool isDark,
   }) {
-    return HoverTiltCard(
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: isDark ? AppTheme.darkSurface : Colors.white,
-          borderRadius: BorderRadius.circular(18),
-          border: Border.all(
-            color: isRecommended
-                ? AppTheme.primaryBlue
-                : (isDark
-                      ? Colors.white.withValues(alpha: 0.08)
-                      : Colors.black.withValues(alpha: 0.08)),
-            width: isRecommended ? 2 : 1,
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: isDark ? AppTheme.darkSurface : Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: isRecommended
+              ? AppTheme.primaryBlue
+              : (isDark
+                    ? Colors.white.withValues(alpha: 0.08)
+                    : Colors.black.withValues(alpha: 0.08)),
+          width: isRecommended ? 2 : 1,
+        ),
+        boxShadow: isRecommended
+            ? [
+                BoxShadow(
+                  color: AppTheme.primaryBlue.withValues(
+                    alpha: isDark ? 0.15 : 0.08,
+                  ),
+                  blurRadius: 18,
+                  spreadRadius: 1,
+                ),
+              ]
+            : [
+                BoxShadow(
+                  color: isDark
+                      ? Colors.black.withValues(alpha: 0.4)
+                      : Colors.black.withValues(alpha: 0.04),
+                  blurRadius: 12,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (isRecommended)
+            Container(
+              margin: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
+              decoration: BoxDecoration(
+                gradient: AppTheme.primaryGradient,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Text(
+                '⭐ Recommended Package',
+                style: TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+              color: isDark ? Colors.white : Colors.black87,
+            ),
           ),
-          boxShadow: isRecommended
-              ? [
-                  BoxShadow(
-                    color: AppTheme.primaryBlue.withValues(
-                      alpha: isDark ? 0.15 : 0.08,
+          const SizedBox(height: 3),
+
+          Text(
+            priceInr,
+            style: const TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.w800,
+              color: AppTheme.primaryBlue,
+            ),
+          ),
+          Text(
+            '($priceUsd)',
+            style: TextStyle(
+              fontSize: 10,
+              color: isDark ? Colors.white54 : Colors.black45,
+            ),
+          ),
+          const SizedBox(height: 10),
+
+          const Divider(height: 1),
+          const SizedBox(height: 10),
+
+          _buildSpecRow(Icons.splitscreen_rounded, 'Screens', screens, isDark),
+          _buildSpecRow(Icons.schedule_rounded, 'Delivery', delivery, isDark),
+          _buildSpecRow(Icons.sync_rounded, 'Revisions', revisions, isDark),
+          _buildSpecRow(
+            Icons.support_agent_rounded,
+            'Support',
+            support,
+            isDark,
+          ),
+
+          const SizedBox(height: 10),
+          const Divider(height: 1),
+          const SizedBox(height: 10),
+
+          Text(
+            'Included Features:',
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.bold,
+              color: isDark ? Colors.white70 : Colors.black87,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Column(
+            children: features.map((feature) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 4),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.check_circle_rounded,
+                      size: 13,
+                      color: AppTheme.primaryBlue,
                     ),
-                    blurRadius: 18,
-                    spreadRadius: 1,
-                  ),
-                ]
-              : null,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (isRecommended)
-              Container(
-                margin: const EdgeInsets.only(bottom: 8),
-                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
-                decoration: BoxDecoration(
-                  gradient: AppTheme.primaryGradient,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Text(
-                  '⭐ Recommended Package',
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.bold,
-                color: isDark ? Colors.white : Colors.black87,
-              ),
-            ),
-            const SizedBox(height: 3),
-
-            Text(
-              priceInr,
-              style: const TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w800,
-                color: AppTheme.primaryBlue,
-              ),
-            ),
-            Text(
-              '($priceUsd)',
-              style: TextStyle(
-                fontSize: 10,
-                color: isDark ? Colors.white54 : Colors.black45,
-              ),
-            ),
-            const SizedBox(height: 10),
-
-            const Divider(height: 1),
-            const SizedBox(height: 10),
-
-            _buildSpecRow(
-              Icons.splitscreen_rounded,
-              'Screens',
-              screens,
-              isDark,
-            ),
-            _buildSpecRow(Icons.schedule_rounded, 'Delivery', delivery, isDark),
-            _buildSpecRow(Icons.sync_rounded, 'Revisions', revisions, isDark),
-            _buildSpecRow(
-              Icons.support_agent_rounded,
-              'Support',
-              support,
-              isDark,
-            ),
-
-            const SizedBox(height: 10),
-            const Divider(height: 1),
-            const SizedBox(height: 10),
-
-            Text(
-              'Included Features:',
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.bold,
-                color: isDark ? Colors.white70 : Colors.black87,
-              ),
-            ),
-            const SizedBox(height: 5),
-            Column(
-              children: features.map((feature) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 4),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.check_circle_rounded,
-                        size: 13,
-                        color: AppTheme.primaryBlue,
-                      ),
-                      const SizedBox(width: 6),
-                      Expanded(
-                        child: Text(
-                          feature,
-                          style: TextStyle(
-                            fontSize: 11,
-                            color: isDark ? Colors.white70 : Colors.black87,
-                          ),
+                    const SizedBox(width: 6),
+                    Expanded(
+                      child: Text(
+                        feature,
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: isDark ? Colors.white70 : Colors.black87,
                         ),
                       ),
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
-
-            const SizedBox(height: 14),
-
-            SizedBox(
-              width: double.infinity,
-              child: isRecommended
-                  ? ElevatedButton(
-                      onPressed: () => _openProjectInquiry(
-                        packageTitle: title,
-                        estimatedPrice: priceInr,
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppTheme.primaryBlue,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 9),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: const Text('Select Package →'),
-                    )
-                  : OutlinedButton(
-                      onPressed: () => _openProjectInquiry(
-                        packageTitle: title,
-                        estimatedPrice: priceInr,
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor: AppTheme.primaryBlue,
-                        side: const BorderSide(color: AppTheme.primaryBlue),
-                        padding: const EdgeInsets.symmetric(vertical: 9),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: const Text('Select Package →'),
                     ),
-            ),
-          ],
-        ),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
+
+          const SizedBox(height: 14),
+
+          SizedBox(
+            width: double.infinity,
+            child: isRecommended
+                ? ElevatedButton(
+                    onPressed: () => _openProjectInquiry(
+                      packageTitle: title,
+                      estimatedPrice: priceInr,
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppTheme.primaryBlue,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 9),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text('Select Package →'),
+                  )
+                : OutlinedButton(
+                    onPressed: () => _openProjectInquiry(
+                      packageTitle: title,
+                      estimatedPrice: priceInr,
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: AppTheme.primaryBlue,
+                      side: const BorderSide(color: AppTheme.primaryBlue),
+                      padding: const EdgeInsets.symmetric(vertical: 9),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text('Select Package →'),
+                  ),
+          ),
+        ],
       ),
     );
   }

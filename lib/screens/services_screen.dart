@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import '../helpers/ui_helper.dart';
-import 'contact_section.dart';
-
 import '../widgets/scroll_progress_indicator.dart';
+import '../widgets/services/capability_chips.dart';
+import '../widgets/services/service_card.dart';
+import '../widgets/services/service_cta.dart';
+import '../widgets/services/service_hero.dart';
+import '../widgets/services/skill_proficiency.dart';
+import '../widgets/services/why_work_with_me.dart';
+import '../widgets/services/work_process_card.dart';
 
 class ServicesScreen extends StatefulWidget {
   const ServicesScreen({super.key});
@@ -22,294 +26,220 @@ class _ServicesScreenState extends State<ServicesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bgColor = isDark ? const Color(0xFF090A0F) : const Color(0xFFF8FAFC);
+    final textColor = isDark ? Colors.white : const Color(0xFF0F172A);
 
+    return Scaffold(
+      backgroundColor: bgColor,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: bgColor,
         elevation: 0,
-        title: const Text(
+        scrolledUnderElevation: 0,
+        title: Text(
           "What I Can Build 🚀",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, color: textColor),
         ),
         centerTitle: true,
       ),
-
       body: Stack(
         children: [
           SingleChildScrollView(
             controller: _scrollController,
-            padding: const EdgeInsets.all(20),
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1200),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // HERO HEADER
+                    const ServiceHero(),
+                    const SizedBox(height: 24),
 
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                /// 🔥 PREMIUM HEADER
-                UiHelper.fadeSlideSection(
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [Colors.blue, Colors.purple],
-                      ),
-                      borderRadius: BorderRadius.circular(25),
+                    // RESPONSIVE CONTENT GRID
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        final width = constraints.maxWidth;
+
+                        if (width >= 1080) {
+                          // Desktop 2-Column
+                          return const Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                flex: 11,
+                                child: Column(
+                                  children: [
+                                    ServiceCard(
+                                      icon: Icons.phone_android,
+                                      title: "App Development",
+                                      description:
+                                          "High-performance mobile and web applications built for scale.",
+                                    ),
+                                    SizedBox(height: 16),
+                                    ServiceCard(
+                                      icon: Icons.design_services,
+                                      title: "UI/UX Design",
+                                      description:
+                                          "Modern, intuitive and conversion-focused user interfaces.",
+                                    ),
+                                    SizedBox(height: 16),
+                                    ServiceCard(
+                                      icon: Icons.bug_report,
+                                      title: "Optimization & Maintenance",
+                                      description:
+                                          "Improve performance, fix issues, and ensure smooth user experience.",
+                                    ),
+                                    SizedBox(height: 16),
+                                    ServiceCard(
+                                      icon: Icons.rocket_launch,
+                                      title: "Launch & Deployment",
+                                      description:
+                                          "Complete app setup, optimization, and store deployment.",
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 24),
+                              Expanded(
+                                flex: 10,
+                                child: Column(
+                                  children: [
+                                    WhyWorkWithMeCard(),
+                                    SizedBox(height: 16),
+                                    WorkProcessCard(),
+                                    SizedBox(height: 16),
+                                    CapabilityChipsCard(),
+                                    SizedBox(height: 16),
+                                    SkillProficiencyCard(),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        } else if (width >= 720) {
+                          // Tablet 2-Column
+                          return const Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Column(
+                                  children: [
+                                    ServiceCard(
+                                      icon: Icons.phone_android,
+                                      title: "App Development",
+                                      description:
+                                          "High-performance mobile and web applications built for scale.",
+                                    ),
+                                    SizedBox(height: 16),
+                                    ServiceCard(
+                                      icon: Icons.design_services,
+                                      title: "UI/UX Design",
+                                      description:
+                                          "Modern, intuitive and conversion-focused user interfaces.",
+                                    ),
+                                    SizedBox(height: 16),
+                                    WhyWorkWithMeCard(),
+                                    SizedBox(height: 16),
+                                    CapabilityChipsCard(),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 20),
+                              Expanded(
+                                flex: 1,
+                                child: Column(
+                                  children: [
+                                    ServiceCard(
+                                      icon: Icons.bug_report,
+                                      title: "Optimization & Maintenance",
+                                      description:
+                                          "Improve performance, fix issues, and ensure smooth user experience.",
+                                    ),
+                                    SizedBox(height: 16),
+                                    ServiceCard(
+                                      icon: Icons.rocket_launch,
+                                      title: "Launch & Deployment",
+                                      description:
+                                          "Complete app setup, optimization, and store deployment.",
+                                    ),
+                                    SizedBox(height: 16),
+                                    WorkProcessCard(),
+                                    SizedBox(height: 16),
+                                    SkillProficiencyCard(),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        } else {
+                          // Mobile Single Column Stack
+                          return const Column(
+                            children: [
+                              ServiceCard(
+                                icon: Icons.phone_android,
+                                title: "App Development",
+                                description:
+                                    "High-performance mobile and web applications built for scale.",
+                              ),
+                              SizedBox(height: 16),
+                              ServiceCard(
+                                icon: Icons.design_services,
+                                title: "UI/UX Design",
+                                description:
+                                    "Modern, intuitive and conversion-focused user interfaces.",
+                              ),
+                              SizedBox(height: 16),
+                              ServiceCard(
+                                icon: Icons.bug_report,
+                                title: "Optimization & Maintenance",
+                                description:
+                                    "Improve performance, fix issues, and ensure smooth user experience.",
+                              ),
+                              SizedBox(height: 16),
+                              ServiceCard(
+                                icon: Icons.rocket_launch,
+                                title: "Launch & Deployment",
+                                description:
+                                    "Complete app setup, optimization, and store deployment.",
+                              ),
+                              SizedBox(height: 20),
+                              WhyWorkWithMeCard(),
+                              SizedBox(height: 20),
+                              WorkProcessCard(),
+                              SizedBox(height: 20),
+                              CapabilityChipsCard(),
+                              SizedBox(height: 20),
+                              SkillProficiencyCard(),
+                            ],
+                          );
+                        }
+                      },
                     ),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "What I Can Build 🚀",
-                          style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "I build scalable, high-performance digital products.",
-                          style: TextStyle(color: Colors.white70),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
 
-                UiHelper.verticalSpace(25),
+                    const SizedBox(height: 28),
 
-                /// 🔥 SERVICES (Glass Cards)
-                _premiumService(
-                  Icons.phone_android,
-                  "App Development",
-                  "High-performance mobile and web applications built for scale.",
-                ),
-
-                _premiumService(
-                  Icons.design_services,
-                  "UI/UX Design",
-                  "Modern, intuitive and conversion-focused user interfaces.",
-                ),
-
-                _premiumService(
-                  Icons.bug_report,
-                  "Optimization & Maintenance",
-                  "Improve performance, fix issues, and ensure smooth user experience.",
-                ),
-
-                _premiumService(
-                  Icons.rocket_launch,
-                  "Launch & Deployment",
-                  "Complete app setup, optimization, and store deployment.",
-                ),
-
-                UiHelper.verticalSpace(25),
-
-                /// 🔥 WHY ME (Glass)
-                _glassSection(
-                  title: "Why Work With Me",
-                  children: const [
-                    "⚡ Fast & reliable delivery",
-                    "🧠 Clean and scalable architecture",
-                    "🚀 Real-world project experience",
-                    "🎯 Focus on quality and performance",
+                    // CTA SECTION
+                    const ServiceCtaSection(),
+                    const SizedBox(height: 20),
                   ],
                 ),
-
-                UiHelper.verticalSpace(25),
-
-                /// 🔥 PROCESS
-                _glassSection(
-                  title: "Work Process",
-                  children: const [
-                    "1. Requirement discussion",
-                    "2. UI/UX planning",
-                    "3. Development & testing",
-                    "4. Deployment & support",
-                  ],
-                ),
-
-                UiHelper.verticalSpace(25),
-
-                /// 🔥 SKILLS TAGS
-                _glassSection(
-                  title: "Capabilities",
-                  isWrap: true,
-                  wrapItems: const [
-                    "Cross-platform apps",
-                    "Backend systems",
-                    "API integrations",
-                    "Cloud storage",
-                    "Scalable architecture",
-                    "UI/UX design",
-                  ],
-                ),
-
-                UiHelper.verticalSpace(25),
-
-                /// 🔥 STATS
-                _glassSection(
-                  title: "My Skills",
-                  childrenWidgets: [
-                    _stat("App Development", 0.85),
-                    _stat("UI Design", 0.80),
-                    _stat("Backend", 0.75),
-                  ],
-                ),
-
-                UiHelper.verticalSpace(30),
-
-                /// 🔥 CTA
-                UiHelper.glowButton(
-                  text: "Start Project on WhatsApp 🚀",
-                  onTap: () {
-                    // WhatsApp link
-                    UiHelper.launchUrlLink(
-                      "https://wa.me/918788357452?text=🚀%20Project%20Inquiry%0A%0AHi%20Sagar%20👋%0A%0AI%20found%20your%20portfolio%20and%20I%E2%80%99m%20interested%"
-                      "20in%20working%20with%20you.%0A%0A📝%20Project%20Details:%0A%E2%80%A2%20Project%20Type:%20(App%20/%20Website%20/%20Both)%0A%E2%80%A2%20Featur"
-                      "es%20Required:%20%0A%E2%80%A2%20Budget:%20%0A%E2%80%A2%20Timeline:%20%0A%0A💡%20Additional%20Information:%0A(Briefly%20explain%20your%20idea%20"
-                      "or%20goal)%0A%0ALooking%20forward%20to%20your%20response.%0A%0AThank%20you.",
-                    );
-                  },
-                ),
-
-                UiHelper.verticalSpace(10),
-
-                UiHelper.glowButton(
-                  text: "Get in Touch ✉️",
-                  onTap: () {
-                    UiHelper.navigateWithSlideTransition(
-                      context,
-                      ContactSection(),
-                    );
-                  },
-                ),
-
-                UiHelper.verticalSpace(20),
-
-                const Center(
-                  child: Text(
-                    "Limited projects accepted ⚡",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ),
-
-                UiHelper.verticalSpace(30),
-              ],
+              ),
             ),
           ),
+
+          // VERTICAL SCROLL PROGRESS INDICATOR
           Positioned(
             top: 0,
-            left: 0,
+            bottom: 0,
             right: 0,
-            child: TopScrollProgressBar(scrollController: _scrollController),
+            child: ScrollProgressIndicator(scrollController: _scrollController),
           ),
         ],
       ),
-    );
-  }
-
-  /// 🔥 PREMIUM SERVICE CARD
-  Widget _premiumService(IconData icon, String title, String desc) {
-    return UiHelper.fadeSlideSection(
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 15),
-        padding: const EdgeInsets.all(18),
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.05),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white24),
-        ),
-        child: Row(
-          children: [
-            CircleAvatar(
-              backgroundColor: Colors.blue.withOpacity(0.2),
-              child: Icon(icon, color: Colors.white),
-            ),
-            const SizedBox(width: 15),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    desc,
-                    style: const TextStyle(color: Colors.white70, fontSize: 13),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  /// 🔥 GLASS SECTION (Reusable)
-  Widget _glassSection({
-    required String title,
-    List<String>? children,
-    List<Widget>? childrenWidgets,
-    List<String>? wrapItems,
-    bool isWrap = false,
-  }) {
-    return UiHelper.fadeSlideSection(
-      child: Container(
-        padding: const EdgeInsets.all(18),
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.05),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white24),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-
-            UiHelper.verticalSpace(10),
-
-            if (children != null)
-              ...children.map(
-                (e) =>
-                    Text("• $e", style: const TextStyle(color: Colors.white70)),
-              ),
-
-            if (childrenWidgets != null) ...childrenWidgets,
-
-            if (isWrap && wrapItems != null)
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: wrapItems
-                    .map((e) => UiHelper.chipButton(text: e, onTap: () {}))
-                    .toList(),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  /// 🔥 PROGRESS BAR
-  Widget _stat(String label, double value) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(label),
-        UiHelper.verticalSpace(5),
-        UiHelper.animatedProgressBar(percent: value),
-        UiHelper.verticalSpace(10),
-      ],
     );
   }
 }
