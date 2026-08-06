@@ -41,7 +41,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       year: '2024',
       badgeText: '👤 Personal',
       caption: 'Personal reflections and professional growth journey.',
-      imagePath: 'assets/images/sagar_persional_photo_1.png',
+      imagePath: 'assets/images/sagar_persional_photo_1.webp',
       fallbackIcon: Icons.person_rounded,
       highlights: ['Personal Growth', 'Journey', 'Self-Improvement'],
     ),
@@ -53,7 +53,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '👤 Personal',
       caption:
           'Learning, evolving, and building a strong foundation for the future.',
-      imagePath: 'assets/images/sagar_persional_photo_2.png',
+      imagePath: 'assets/images/sagar_persional_photo_2.webp',
       fallbackIcon: Icons.explore_rounded,
       highlights: ['Path Building', 'Learning', 'Vision'],
     ),
@@ -65,7 +65,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '👤 Personal',
       caption:
           'Exploring life experiences, hobbies, and personal perspectives.',
-      imagePath: 'assets/images/sagar_persional_photo_3.jpg',
+      imagePath: 'assets/images/sagar_persional_photo_3.webp',
       fallbackIcon: Icons.self_improvement_rounded,
       highlights: ['Life Balance', 'Perspectives', 'Interests'],
     ),
@@ -76,7 +76,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       year: '2024',
       badgeText: '👤 Personal',
       caption: 'Key moments and personal milestones along the way.',
-      imagePath: 'assets/images/sagar_persional_photo_4.jpg',
+      imagePath: 'assets/images/sagar_persional_photo_4.webp',
       fallbackIcon: Icons.flag_rounded,
       highlights: ['Milestone', 'Reflection', 'Experience'],
     ),
@@ -88,7 +88,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '👤 Personal',
       caption:
           'Gaining fresh insights through continuous learning and experiences.',
-      imagePath: 'assets/images/sagar_persional_photo_5.jpg',
+      imagePath: 'assets/images/sagar_persional_photo_5.webp',
       fallbackIcon: Icons.lightbulb_rounded,
       highlights: ['Insights', 'Perspective', 'Mindset'],
     ),
@@ -100,7 +100,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '👤 Personal',
       caption:
           'Staying committed to long-term personal and professional goals.',
-      imagePath: 'assets/images/sagar_persional_photo_7.jpg',
+      imagePath: 'assets/images/sagar_persional_photo_7.webp',
       fallbackIcon: Icons.center_focus_strong_rounded,
       highlights: ['Focus', 'Determination', 'Consistency'],
     ),
@@ -111,7 +111,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       year: '2024',
       badgeText: '👤 Personal',
       caption: 'Cherished memories and personal life snapshots.',
-      imagePath: 'assets/images/sagar_persional_photo_9.jpg',
+      imagePath: 'assets/images/sagar_persional_photo_9.webp',
       fallbackIcon: Icons.collections_rounded,
       highlights: ['Memories', 'Snapshots', 'Life'],
     ),
@@ -122,7 +122,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       year: '2024',
       badgeText: '👤 Personal',
       caption: 'Embracing challenges and stepping forward with clarity.',
-      imagePath: 'assets/images/sagar_persional_photo_10.jpg',
+      imagePath: 'assets/images/sagar_persional_photo_10.webp',
       fallbackIcon: Icons.alt_route_rounded,
       highlights: ['Clarity', 'Growth', 'Forward Drive'],
     ),
@@ -136,7 +136,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '📜 NSS & Volunteering',
       caption:
           'Speaking into a microphone during a public NSS community activity and youth engagement drive.',
-      imagePath: 'assets/images/sagar_NSS_photo_with_mike_4.jpg',
+      imagePath: 'assets/images/sagar_NSS_photo_with_mike_4.webp',
       fallbackIcon: Icons.record_voice_over_rounded,
       highlights: ['Public Speaking', 'NSS Leadership', 'Community Drive'],
     ),
@@ -148,7 +148,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '📜 NSS & Volunteering',
       caption:
           'Receiving official NSS (National Service Scheme) certificate for dedicated social service and volunteering.',
-      imagePath: 'assets/images/sagar_NSS_certificate.jpg',
+      imagePath: 'assets/images/sagar_NSS_certificate.webp',
       fallbackIcon: Icons.card_membership_rounded,
       highlights: ['NSS Certificate', 'Social Service', 'Recognition'],
     ),
@@ -160,7 +160,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '📜 NSS & Volunteering',
       caption:
           'Participating in public social awareness campaigns, environmental initiatives, and community service.',
-      imagePath: 'assets/images/sagar_NSS_publicphoto_7.JPG',
+      imagePath: 'assets/images/sagar_NSS_publicphoto_7.webp',
       fallbackIcon: Icons.volunteer_activism_rounded,
       highlights: ['Community Work', 'Social Awareness', 'Volunteering'],
     ),
@@ -174,7 +174,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🎭 Stage Role',
       caption:
           'Stage drama performance conveying social awareness messages during NSS cultural events.',
-      imagePath: 'assets/images/sagar_NSS_photo_1.JPG',
+      imagePath: 'assets/images/sagar_NSS_photo_1.webp',
       fallbackIcon: Icons.theater_comedy_rounded,
       highlights: ['Stage Drama', 'NSS Cultural', 'Social Message'],
     ),
@@ -186,7 +186,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🎭 Stage Role',
       caption:
           'Performing a character role on stage holding a microphone alongside fellow student drama cast members.',
-      imagePath: 'assets/images/sagar_NSS_photo_2.JPG',
+      imagePath: 'assets/images/sagar_NSS_photo_2.webp',
       fallbackIcon: Icons.mic_external_on_rounded,
       highlights: ['Stage Role', 'Character Acting', 'Team Performance'],
     ),
@@ -198,7 +198,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🎭 Stage Role',
       caption:
           'Theatrical performance and artistic expression in front of a live college audience.',
-      imagePath: 'assets/images/sagar_NSS_photo_3.JPG',
+      imagePath: 'assets/images/sagar_NSS_photo_3.webp',
       fallbackIcon: Icons.masks_rounded,
       highlights: ['Cultural Stage', 'Acting Expression', 'Live Audience'],
     ),
@@ -210,7 +210,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🎭 Stage Role',
       caption:
           'Enacting a social awareness script highlighting key youth and societal topics.',
-      imagePath: 'assets/images/sagar_NSS_photo_5.JPG',
+      imagePath: 'assets/images/sagar_NSS_photo_5.webp',
       fallbackIcon: Icons.campaign_rounded,
       highlights: ['Social Awareness', 'Theatrical Play', 'Impact'],
     ),
@@ -222,7 +222,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🎭 Stage Role',
       caption:
           'Collaborative stage act demonstrating creative expression, dialogue delivery, and stage presence.',
-      imagePath: 'assets/images/sagar_NSS_photo_6.JPG',
+      imagePath: 'assets/images/sagar_NSS_photo_6.webp',
       fallbackIcon: Icons.draw_rounded,
       highlights: ['Creative Expression', 'Stage Presence', 'Drama Cast'],
     ),
@@ -236,7 +236,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🏋️ Gym & Fitness',
       caption:
           'Dedication to physical fitness, healthy habits, and daily strength training routines.',
-      imagePath: 'assets/images/sagar_gymphoto_1.jpg',
+      imagePath: 'assets/images/sagar_gymphoto_1.webp',
       fallbackIcon: Icons.fitness_center_rounded,
       highlights: ['Physical Fitness', 'Healthy Habits', 'Training'],
       imageAlignment: Alignment.center,
@@ -249,7 +249,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🏋️ Gym & Discipline',
       caption:
           'Strength training discipline that builds mental clarity, focus, and physical endurance.',
-      imagePath: 'assets/images/sagar_gymphoto_2.jpg',
+      imagePath: 'assets/images/sagar_gymphoto_2.webp',
       fallbackIcon: Icons.psychology_rounded,
       highlights: ['Strength', 'Discipline', 'Mental Clarity'],
       imageAlignment: Alignment.center,
@@ -262,7 +262,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🏋️ Gym & Consistency',
       caption:
           'Maintaining consistent workouts for sustained energy, physical health, and stamina.',
-      imagePath: 'assets/images/sagar_gymphoto_3.jpg',
+      imagePath: 'assets/images/sagar_gymphoto_3.webp',
       fallbackIcon: Icons.repeat_rounded,
       highlights: ['Consistency', 'Stamina', 'Energy'],
       imageAlignment: Alignment.center,
@@ -277,7 +277,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🎓 Academic Result',
       caption:
           'Physics Department academic result milestone — Sagar V. Borkar: Phy. 128 (85.33%), SGPA 8.09 (73.40%).',
-      imagePath: 'assets/images/sagar_Phy_SGPA_photo.jpg',
+      imagePath: 'assets/images/sagar_Phy_SGPA_photo.webp',
       fallbackIcon: Icons.school_rounded,
       highlights: ['Physics: 85.33%', 'SGPA: 8.09', 'Academic Progress'],
     ),
@@ -289,7 +289,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🎓 Education / NEP',
       caption:
           'Pursuing B.Sc. Computer Science under National Education Policy (NEP) Programme.',
-      imagePath: 'assets/images/sagar_education_1.jpg',
+      imagePath: 'assets/images/sagar_education_1.webp',
       fallbackIcon: Icons.menu_book_rounded,
       highlights: [
         'B.Sc. Computer Science',
@@ -305,7 +305,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       badgeText: '🎓 Campus Life',
       caption:
           'College campus memories, tech events, and learning experiences.',
-      imagePath: 'assets/images/sagar_college_photo.jpg',
+      imagePath: 'assets/images/sagar_college_photo.webp',
       fallbackIcon: Icons.groups_rounded,
       highlights: ['College Campus', 'Tech Events'],
       imageAlignment: Alignment.bottomCenter,
@@ -319,7 +319,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       year: '2025',
       badgeText: '👤 Personal',
       caption: 'Memorable moment and personal journey snapshot.',
-      imagePath: 'assets/images/IMG_20250317_184157_596.jpg',
+      imagePath: 'assets/images/IMG_20250317_184157_596.webp',
       fallbackIcon: Icons.photo_camera_rounded,
       highlights: ['Personal Snapshot', 'Life Experience'],
     ),
@@ -330,7 +330,7 @@ class ActivityGalleryWidget extends StatefulWidget {
       year: '2025',
       badgeText: '👤 Personal',
       caption: 'Growth, reflection, and self-improvement.',
-      imagePath: 'assets/images/retouch_2025083022023435.jpg',
+      imagePath: 'assets/images/retouch_2025083022023435.webp',
       fallbackIcon: Icons.auto_awesome_rounded,
       highlights: ['Reflection', 'Growth'],
     ),

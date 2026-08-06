@@ -43,7 +43,7 @@ class ProjectsSection extends StatefulWidget {
       subtitle: 'Cross-platform Social Media Application',
       description:
           'A real-world cross-platform social media application with real-time chat, posts, media sharing, and instant feed updates.',
-      imagePath: 'assets/images/premium_futuristic_S_transparent.png',
+      imagePath: 'assets/images/premium_futuristic_S_transparent.webp',
       technologies: ['Flutter', 'Dart', 'Supabase', 'Cloudinary', 'REST APIs'],
       features: [
         '💬 Real-time Chat & Direct Messaging',
@@ -63,7 +63,7 @@ class ProjectsSection extends StatefulWidget {
       subtitle: 'Competitive Exam Prep & Mock Test App',
       description:
           'A competitive exam preparation and mock-test application built for exams such as NEET, JEE, SSC, UPSC, Banking, and Railway with practice tests & analytics.',
-      imagePath: 'assets/images/MockTestProx_.png',
+      imagePath: 'assets/images/MockTestProx_.webp',
       technologies: ['Flutter', 'Dart', 'Riverpod', 'Supabase'],
       features: [
         '📝 Practice Tests & Mock Exams (NEET, JEE, SSC, UPSC, Banking, Railway)',
@@ -80,7 +80,7 @@ class ProjectsSection extends StatefulWidget {
       subtitle: 'Developer & Product Showcase Portfolio',
       description:
           'Personal cross-platform developer portfolio showcasing real-world software products, technical skills, and interactive photo gallery.',
-      imagePath: 'assets/images/sagar_borkar_Sg.jpg',
+      imagePath: 'assets/images/sagar_borkar_Sg.webp',
       technologies: ['Flutter', 'Dart', 'Material 3', 'Riverpod'],
       features: [
         '🎨 Responsive Material 3 Design',

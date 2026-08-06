@@ -33,7 +33,7 @@ class ContactHero extends StatelessWidget {
             backgroundColor: isDark ? const Color(0xFF1E202E) : Colors.white,
             child: ClipOval(
               child: Image.asset(
-                'assets/images/sagar_borkar_1.jpeg',
+                'assets/images/sagar_borkar_1.webp',
                 width: 96,
                 height: 96,
                 cacheWidth: 192,

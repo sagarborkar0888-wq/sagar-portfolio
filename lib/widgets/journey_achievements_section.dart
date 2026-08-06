@@ -34,7 +34,7 @@ class JourneyAchievementsWidget extends StatefulWidget {
       year: '2024',
       caption:
           'Awarded official NSS (National Service Scheme) certificate for dedicated community service, youth leadership, and organizing blood donation & awareness drives.',
-      imagePath: 'assets/images/sagar_NSS_certificate.jpg',
+      imagePath: 'assets/images/sagar_NSS_certificate.webp',
       fallbackIcon: Icons.card_membership_rounded,
       highlights: ['Community Service', 'Leadership', 'Social Awareness'],
     ),
@@ -45,7 +45,7 @@ class JourneyAchievementsWidget extends StatefulWidget {
       year: '2025',
       caption:
           'Secured 2nd place in inter-college video storytelling & creative reel production competition, demonstrating video editing, pacing, and visual storytelling talent.',
-      imagePath: 'assets/images/IMG_20250317_184157_596.jpg',
+      imagePath: 'assets/images/IMG_20250317_184157_596.webp',
       fallbackIcon: Icons.emoji_events_rounded,
       highlights: [
         '2nd Prize Winner',
@@ -60,7 +60,7 @@ class JourneyAchievementsWidget extends StatefulWidget {
       year: '2024',
       caption:
           'Performed stage plays, street dramas, and cultural dances during NSS mega camps, spreading awareness on environmental conservation and youth empowerment.',
-      imagePath: 'assets/images/sagar_NSS_photo_1.JPG',
+      imagePath: 'assets/images/sagar_NSS_photo_1.webp',
       fallbackIcon: Icons.theater_comedy_rounded,
       highlights: ['Stage Drama', 'Cultural Dance', 'Team Performance'],
     ),
@@ -71,7 +71,7 @@ class JourneyAchievementsWidget extends StatefulWidget {
       year: '2024 - 2025',
       caption:
           'Unforgettable moments with friends, campus fests, hackathons, and technical symposiums during computer science engineering studies.',
-      imagePath: 'assets/images/sagar_college_photo.jpg',
+      imagePath: 'assets/images/sagar_college_photo.webp',
       fallbackIcon: Icons.groups_rounded,
       highlights: ['Campus Fests', 'Hackathons', 'Friendships'],
     ),
@@ -82,7 +82,7 @@ class JourneyAchievementsWidget extends StatefulWidget {
       year: '2023 - Present',
       caption:
           'Consistent strength training and daily physical fitness discipline that builds mental resilience, focus, and energy for long coding sessions.',
-      imagePath: 'assets/images/sagar_gymphoto_1.jpg',
+      imagePath: 'assets/images/sagar_gymphoto_1.webp',
       fallbackIcon: Icons.fitness_center_rounded,
       highlights: ['Strength Training', 'Mental Resilience', 'Discipline'],
     ),

@@ -177,7 +177,7 @@ class _AboutSectionState extends State<AboutSection> {
             ),
             child: const CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('assets/images/sagar_borkar_Sg.jpg'),
+              backgroundImage: AssetImage('assets/images/sagar_borkar_Sg.webp'),
             ),
           ),
           const SizedBox(height: 12),

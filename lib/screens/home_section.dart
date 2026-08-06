@@ -143,7 +143,7 @@ class _HomeSectionState extends ConsumerState<HomeSection> {
                           ),
                           child: ClipOval(
                             child: Image.asset(
-                              'assets/images/sagar_borkar_Sg.jpg',
+                              'assets/images/sagar_borkar_Sg.webp',
                               width: 135,
                               height: 135,
                               fit: BoxFit.cover,
@@ -653,7 +653,7 @@ class _HomeSectionState extends ConsumerState<HomeSection> {
                   children: [
                     ClipOval(
                       child: Image.asset(
-                        'assets/images/sagar_borkar_Sg.jpg',
+                        'assets/images/sagar_borkar_Sg.webp',
                         width: 36,
                         height: 36,
                         fit: BoxFit.cover,

@@ -284,11 +284,11 @@ aAS(a){var s,r,q,p=new Float32Array(16)
 for(s=0;s<4;++s)for(r=s*4,q=0;q<4;++q)p[q*4+s]=a[r+q]
 return p},
 aAT(a){var s,r,q,p=new Float32Array(9)
-for(s=a.length,r=0;r<9;++r){q=B.qM[r]
+for(s=a.length,r=0;r<9;++r){q=B.qL[r]
 if(q<s)p[r]=a[q]
 else p[r]=0}return p},
 aXU(a){var s,r,q,p=new Float32Array(9)
-for(s=a.length,r=0;r<9;++r){q=B.qM[r]
+for(s=a.length,r=0;r<9;++r){q=B.qL[r]
 if(q<s)p[r]=a[q]
 else p[r]=0}return p},
 aIL(a){var s=new Float32Array(2)
@@ -1034,7 +1034,7 @@ p.a58()
 return p},
 aO4(a){return new A.a4N($.aq,a)},
 ayj(){var s,r,q,p,o=v.G,n=o.window,m=A.aNE(n.navigator)
-if(m==null||m.length===0)return B.qO
+if(m==null||m.length===0)return B.qN
 s=A.b([],t.ss)
 for(n=m.length,r=0;r<m.length;m.length===n||(0,A.v)(m),++r){q=m[r]
 p=new o.Intl.Locale(q)
@@ -7421,9 +7421,9 @@ r=a<2.5?(a-2)*10:(a-2.5)*2+6-1
 q=B.n.e1(B.e.hb(r),0,9)
 p=r-q
 s=1-p
-o=B.qN[q]
+o=B.qM[q]
 n=o[0]
-m=B.qN[q+1]
+m=B.qM[q+1]
 return new A.aj(s*n+p*m[0],1-1/(s*o[1]+p*m[1]))},
 W_(a,b,c,d){var s,r=b.R(0,a),q=new A.C(Math.abs(c.a),Math.abs(c.b)),p=q.geA(),o=p===0?B.jq:q.dU(0,p),n=r.a,m=Math.abs(n)/o.a,l=r.b,k=Math.abs(l)/o.b
 n/=m
@@ -11389,8 +11389,8 @@ break
 case 4:s=l.a
 s===$&&A.a()
 s=A.bC(s,200)
-r=A.bC(A.a3y(l,B.qP,B.NI),24)
-q=A.bC(A.a3y(l,B.qP,B.ON),32)
+r=A.bC(A.a3y(l,B.qO,B.NI),24)
+q=A.bC(A.a3y(l,B.qO,B.ON),32)
 p=A.bC(l.a,10)
 o=A.bC(l.a,12)
 l.d===$&&A.a()
@@ -11400,8 +11400,8 @@ break
 case 5:s=l.a
 s===$&&A.a()
 s=A.bC(A.AG(s+240),40)
-r=A.bC(A.a3y(l,B.qR,B.PD),24)
-q=A.bC(A.a3y(l,B.qR,B.PE),32)
+r=A.bC(A.a3y(l,B.qQ,B.PD),24)
+q=A.bC(A.a3y(l,B.qQ,B.PE),32)
 p=A.bC(l.a+15,8)
 o=A.bC(l.a+15,12)
 l.d===$&&A.a()
@@ -12016,7 +12016,7 @@ aCX(a,b,c){if(b!=null&&!b.j(0,B.E))return A.aCl(b.b3(A.aO_(c)),a)
 return a},
 aO_(a){var s,r,q,p,o,n
 if(a<0)return 0
-for(s=0;r=B.qQ[s],q=r.a,a>=q;){if(a===q||s+1===6)return r.b;++s}p=B.qQ[s-1]
+for(s=0;r=B.qP[s],q=r.a,a>=q;){if(a===q||s+1===6)return r.b;++s}p=B.qP[s-1]
 o=p.a
 n=p.b
 return n+(a-o)/(q-o)*(r.b-n)},
@@ -38747,11 +38747,11 @@ gYw(){var s=this.a
 if(s instanceof A.f5)return s
 return this.a=new A.f5(s)},
 gasU(){var s,r,q,p,o,n=this
-if(n.c===1)return B.qS
+if(n.c===1)return B.qT
 s=n.d
 r=J.bM(s)
 q=r.gI(s)-J.cL(n.e)-n.f
-if(q===0)return B.qS
+if(q===0)return B.qT
 p=[]
 for(o=0;o<q;++o)p.push(r.h(s,o))
 p.$flags=3
@@ -47949,7 +47949,7 @@ n=o.e
 o=o.cx
 r=q.gaeh()
 q.a.toString
-return new A.E0(p,p,p,new A.apJ(),p,p,p,p,p,n,B.S2,p,p,p,B.qV,q.gaeo(),o,p,B.a_D,s,p,r,p,p,B.qO,!1,!1,p,p,p,new A.ps(q,t.bT))},
+return new A.E0(p,p,p,new A.apJ(),p,p,p,p,p,n,B.S2,p,p,p,B.qW,q.gaeo(),o,p,B.a_D,s,p,r,p,p,B.qN,!1,!1,p,p,p,new A.ps(q,t.bT))},
 G(a){var s,r=this.a6C(a)
 this.a.toString
 s=this.d
@@ -50266,7 +50266,7 @@ return new A.wy(s.d,s.c,null)},
 $S:317}
 A.wy.prototype={
 G(a){var s=null
-return A.aDk(A.aEb(B.S,s,s,B.qV,A.aIu(),s,new A.aq7(this),s,A.b([new A.rk(this.d,s,s)],t.Ql),!1,s,B.a2K))}}
+return A.aDk(A.aEb(B.S,s,s,B.qW,A.aIu(),s,new A.aq7(this),s,A.b([new A.rk(this.d,s,s)],t.Ql),!1,s,B.a2K))}}
 A.aq7.prototype={
 $2(a,b){this.a.c.$1(b)
 return!1},
@@ -60225,8 +60225,8 @@ s=r.m
 r.du=s==null?null:s.gLw()
 a.a=!1},
 qa(a,b,c){var s,r,q,p,o=this
-o.c3=A.aEN(o.c3,B.qU)
-o.eF=A.aEN(o.eF,B.qU)
+o.c3=A.aEN(o.c3,B.qV)
+o.eF=A.aEN(o.eF,B.qV)
 s=o.c3
 r=s!=null&&!s.ga2(s)
 s=o.eF
@@ -70009,8 +70009,8 @@ J(){return"SmartDashesType."+this.b}}
 A.ahE.prototype={
 J(){return"SmartQuotesType."+this.b}}
 A.lL.prototype={
-jR(){return A.ac(["name","TextInputType."+B.qL[this.a],"signed",this.b,"decimal",this.c],t.N,t.z)},
-k(a){return"TextInputType(name: "+("TextInputType."+B.qL[this.a])+", signed: "+A.l(this.b)+", decimal: "+A.l(this.c)+")"},
+jR(){return A.ac(["name","TextInputType."+B.qK[this.a],"signed",this.b,"decimal",this.c],t.N,t.z)},
+k(a){return"TextInputType(name: "+("TextInputType."+B.qK[this.a])+", signed: "+A.l(this.b)+", decimal: "+A.l(this.c)+")"},
 j(a,b){if(b==null)return!1
 return b instanceof A.lL&&b.a===this.a&&b.b==this.b&&b.c==this.c},
 gA(a){return A.J(this.a,this.b,this.c,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)}}
@@ -78473,7 +78473,7 @@ grp(){var s=this.a,r=this.b
 if(r==null)s=null
 else{r.a.toString
 s=!0}return s===!0},
-gvM(){return B.qW},
+gvM(){return B.qX},
 lv(){},
 mO(){var s=A.azx()
 s.bW(new A.aeV(this),t.H)
@@ -79134,7 +79134,7 @@ G(a){var s,r,q=this,p=null,o=q.gac0(),n=A.mH(a),m=q.bz$,l=q.d
 l===$&&A.a()
 s=q.a.ay
 if(l.gL()==null){r=q.gN8()
-r=J.pD(r.slice(0),A.a0(r).c)}else r=B.qW
+r=J.pD(r.slice(0),A.a0(r).c)}else r=B.qX
 return A.aDk(new A.dS(new A.abA(q,a),A.At(B.ck,new A.J5(!1,A.ayo(A.pi(!0,p,A.DU(m,new A.uz(r,s,l)),p,p,p,q.y,!1,p,p,p,p,p,!0),n),p),o,q.gabU(),p,p,o),p,t.w3))}}
 A.abv.prototype={
 $1(a){var s=this.a.c
@@ -87801,7 +87801,7 @@ av(){var s,r,q=this
 q.aS()
 s=q.aa1()
 q.a.toString
-r=A.aQw(null,B.qT,s)
+r=A.aQw(null,B.qU,s)
 q.d!==$&&A.b7()
 q.d=r},
 aa1(){this.a.toString
@@ -87818,7 +87818,7 @@ if(r.f){r.f=!1
 s=r.d
 s===$&&A.a()
 r.a.toString
-s.auv(B.qT)}s=r.d
+s.auv(B.qU)}s=r.d
 s===$&&A.a()
 r.a.toString
 return new A.vL(s,B.Sv,null)},
@@ -89375,7 +89375,7 @@ p=A.a_(20)
 o=A.aY(c?B.d.D(0.08):B.h.D(0.08),1)
 n=t.V
 m=A.b([new A.bD(1,B.a_,B.r.D(c?0.12:0.06),B.j,20)],n)
-n=A.a3(d,B.G1,B.i,d,d,new A.a6(d,d,d,d,A.b([new A.bD(1,B.a_,B.r.D(0.25),B.j,16)],n),B.c0,B.bX),d,d,d,d,B.pC,d,d,d)
+n=A.a3(d,B.G2,B.i,d,d,new A.a6(d,d,d,d,A.b([new A.bD(1,B.a_,B.r.D(0.25),B.j,16)],n),B.c0,B.bX),d,d,d,d,B.pC,d,d,d)
 l=a?22:26
 l=A.L("Sagar Borkar",d,d,d,A.W(d,d,c?B.d:B.t,d,d,d,d,d,d,d,d,l,d,d,B.u,d,d,!0,d,-0.5,d,d,d,d,d,d),B.aJ,d)
 k=A.L("Flutter Developer \u2022 Android Developer \u2022 Full Stack App Developer",d,d,d,A.W(d,d,B.r,d,d,d,d,d,d,d,d,a?12:14,d,d,B.b7,d,d,!0,d,d,d,d,d,d,d,d),B.aJ,d)
@@ -89588,7 +89588,7 @@ if(r!=null)A.aEX(r,0,B.Vk,B.dw,B.cD)},
 l(){this.w.l()
 this.aA()},
 G(a){var s,r,q,p,o,n,m,l,k=this,j=null,i=k.glN().C8($.a_J(),t.jm)===B.hg,h=k.a6o(a,i),g=i?B.MA:B.MC,f=k.w,e=A.b([new A.bD(4,B.a_,B.r.D(0.45),B.j,30),new A.bD(8,B.a_,B.aA.D(0.3),B.j,40)],t.V)
-e=A.a3(j,A.axZ(A.mO("assets/images/sagar_borkar_Sg.jpg",B.I,j,j,new A.aoG(),B.e0,135,135)),B.i,j,j,new A.a6(j,j,j,j,e,j,B.bX),j,135,j,j,j,j,j,135)
+e=A.a3(j,A.axZ(A.mO("assets/images/sagar_borkar_Sg.webp",B.I,j,j,new A.aoG(),B.e0,135,135)),B.i,j,j,new A.a6(j,j,j,j,e,j,B.bX),j,135,j,j,j,j,j,135)
 s=A.L("Hi, I am Sagar Borkar \ud83d\udc4b",1,j,j,A.W(j,j,i?B.d:B.t,j,j,j,j,j,j,j,j,22,j,j,B.u,j,j,!0,j,-0.2,j,j,j,j,j,j),j,j)
 r=t.p
 s=A.a3(j,A.ax(A.b([e,B.aU,new A.Lz(B.oe,s,j),B.a5,B.V5,B.a5,A.L("Founder & Developer of SocialProX\nA cross-platform social media app",j,j,j,A.W(j,j,i?B.x:B.G,j,j,j,j,j,j,j,j,15,j,j,j,j,1.4,!0,j,j,j,j,j,j,j,j),B.aJ,j),B.BZ,new A.cY(B.Eq,A.ax(A.b([A.DS(new A.aoH(k),"\ud83c\udf1f Journey & Achievements"),A.cn(j,10,j),A.DS(new A.aoI(k,a),"\ud83d\ude80 About Me"),A.cn(j,10,j),A.DS(new A.aoJ(k,a),"\ud83d\ude80 View Projects"),A.cn(j,10,j),A.DS(new A.aoK(k,a),"\ud83d\udcbc Pricing & Services"),A.cn(j,10,j),A.DS(new A.aoL(k,a),"\u26a1 What I Can Build"),A.cn(j,10,j),A.DS(new A.aoM(k,a),"\ud83d\udce9 Contact Me")],r),B.q,B.k,B.l),j),B.BY,A.aP(A.b([k.QQ(a,"\ud83d\udd10 Privacy",B.AY,i),A.cn(j,j,10),k.QQ(a,"\ud83d\udcdc Terms",B.Cg,i)],r),B.q,B.d4,B.l,0)],r),B.q,B.k,B.l),B.i,j,j,j,j,j,k.x,j,B.pA,j,j,j)
@@ -89604,7 +89604,7 @@ QQ(a,b,c,d){var s=null,r=A.a_(20),q=B.r.D(0.1),p=A.aY(B.r.D(0.25),1)
 return A.hW(s,A.a3(s,A.L(b,s,s,s,A.W(s,s,d?B.d:B.t,s,s,s,s,s,s,s,s,13,s,s,B.U,s,s,!0,s,s,s,s,s,s,s,s),s,s),B.i,s,s,new A.a6(q,s,p,r,s,s,B.p),s,s,s,s,B.l5,s,s,s),B.aq,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.aoF(a,c),s,s,s,s,s,s)},
 nS(a,b,c,d){var s=null,r=A.a_(20),q=d?B.a6.D(0.6):B.d.D(0.8),p=A.aY(d?B.d.D(0.08):B.h.D(0.08),1),o=A.cp(c,B.r,s,30),n=A.L(a,s,s,s,A.W(s,s,d?B.d:B.t,s,s,s,s,s,s,s,s,18,s,s,B.u,s,s,!0,s,s,s,s,s,s,s,s),s,s),m=t.p
 return A.a3(s,A.aP(A.b([o,B.Xd,A.bH(A.ax(A.b([n,B.hc,A.L(b,s,s,s,A.W(s,s,d?B.x:B.G,s,s,s,s,s,s,s,s,14,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s)],m),B.v,B.k,B.l),1)],m),B.q,B.k,B.l,0),B.i,s,s,new A.a6(q,s,p,r,s,s,B.p),s,s,s,B.pB,B.ef,s,s,1/0)},
-a6o(a,b){var s,r,q,p,o,n,m=this,l=null,k=b?B.bN:B.bO,j=A.axZ(A.mO("assets/images/sagar_borkar_Sg.jpg",B.I,l,l,new A.aoC(),B.e0,36,36)),i=t.p
+a6o(a,b){var s,r,q,p,o,n,m=this,l=null,k=b?B.bN:B.bO,j=A.axZ(A.mO("assets/images/sagar_borkar_Sg.webp",B.I,l,l,new A.aoC(),B.e0,36,36)),i=t.p
 j=A.aP(A.b([j,B.cs,A.L("Sagar Borkar",l,l,l,A.W(l,l,b?B.d:B.t,l,l,l,l,l,l,l,l,20,l,l,B.u,l,l,!0,l,l,l,l,l,l,l,l),l,l)],i),B.q,B.k,B.l,0)
 j=A.aP(A.b([j,A.u6(l,l,A.cp(B.qf,b?B.d:B.h,l,l),l,l,new A.aoD(a),l,l,l)],i),B.q,B.cp,B.l,0)
 s=m.mq(a,"Features",B.Bs,b)
@@ -89659,7 +89659,7 @@ A.aoF.prototype={
 $0(){A.j7(this.a,this.b,t.z)},
 $S:0}
 A.aoC.prototype={
-$3(a,b,c){return B.G2},
+$3(a,b,c){return B.G1},
 $S:558}
 A.aoD.prototype={
 $0(){A.fw(this.a,!1).vQ(null)},
@@ -89987,7 +89987,7 @@ s.toString
 A.aII(new A.ary(this,a),s,t.z)},
 l(){this.d.l()
 this.aA()},
-G(a){var s,r,q,p,o,n,m=null,l=A.N(a).ax.a===B.L,k=A.bf(a,m,t.w).w.a.a,j=k<650,i=k>=650&&k<1000,h=B.b.WQ(B.qX,new A.arz()),g=t.CH,f=A.a1(new A.aH(B.qX,new A.arA(),g),g.i("z.E"))
+G(a){var s,r,q,p,o,n,m=null,l=A.N(a).ax.a===B.L,k=A.bf(a,m,t.w).w.a.a,j=k<650,i=k>=650&&k<1000,h=B.b.WQ(B.qS,new A.arz()),g=t.CH,f=A.a1(new A.aH(B.qS,new A.arA(),g),g.i("z.E"))
 g=l?B.bN:B.bO
 s=A.oI(B.E,!0,0,0,B.a27)
 r=this.d
@@ -90211,9 +90211,9 @@ A.cF.prototype={}
 A.xy.prototype={
 ac(){return new A.Rb()}}
 A.Rb.prototype={
-gP_(){if(this.d==="All")return B.qK
+gP_(){if(this.d==="All")return B.qR
 var s=t.Oj
-s=A.a1(new A.aH(B.qK,new A.akC(this),s),s.i("z.E"))
+s=A.a1(new A.aH(B.qR,new A.akC(this),s),s.i("z.E"))
 return s},
 afJ(a){var s=this.c
 s.toString
@@ -90451,7 +90451,7 @@ $S:92}
 A.KA.prototype={
 G(a){var s,r=null,q=this.c,p=q?B.d:B.ap,o=q?B.x:B.bM,n=A.b([new A.bD(2,B.a_,B.r.D(0.25),B.j,20)],t.V)
 q=q?B.Hw:B.d
-n=A.a3(r,new A.mt(A.axZ(A.mO("assets/images/sagar_borkar_1.jpeg",B.I,192,192,new A.a2a(this),B.e0,96,96)),q,r,48,r),B.i,r,r,new A.a6(r,r,r,r,n,B.MB,B.bX),r,r,r,r,B.pC,r,r,r)
+n=A.a3(r,new A.mt(A.axZ(A.mO("assets/images/sagar_borkar_1.webp",B.I,192,192,new A.a2a(this),B.e0,96,96)),q,r,48,r),B.i,r,r,new A.a6(r,r,r,r,n,B.MB,B.bX),r,r,r,r,B.pC,r,r,r)
 q=B.cA.D(0.12)
 s=A.a_(20)
 return A.ax(A.b([n,B.aj,A.a3(r,B.V9,B.i,r,r,new A.a6(q,r,A.aY(B.cA.D(0.3),1),s,r,r,B.p),r,r,r,r,B.l2,r,r,r),B.ai,A.L("Let\u2019s Work Together \ud83d\ude80",r,r,r,A.W(r,r,p,r,r,r,r,r,r,r,r,26,r,r,B.u,r,r,!0,r,-0.5,r,r,r,r,r,r),B.aJ,r),B.cd,A.L("Turning ideas into powerful digital experiences.",r,r,r,A.W(r,r,o,r,r,r,r,r,r,r,r,15,r,r,B.B,r,r,!0,r,r,r,r,r,r,r,r),B.aJ,r)],t.p),B.q,B.k,B.l)}}
@@ -94653,11 +94653,11 @@ B.dt=new A.ta(1,"isTrue")
 B.hB=new A.ta(2,"isFalse")
 B.f7=new A.ta(3,"mixed")
 B.FT=new A.tc(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.DT=new A.t_("assets/images/sagar_borkar_Sg.jpg",null,null)
-B.G1=new A.mt(null,null,B.DT,50,null)
 B.iq=new A.a4(983153,"MaterialIcons",!1)
 B.Lq=new A.bJ(B.iq,18,null,null,null)
-B.G2=new A.mt(B.Lq,null,null,18,null)
+B.G1=new A.mt(B.Lq,null,null,18,null)
+B.DT=new A.t_("assets/images/sagar_borkar_Sg.webp",null,null)
+B.G2=new A.mt(null,null,B.DT,50,null)
 B.f8=new A.dB(0,B.w)
 B.G4=new A.Kc(B.mB)
 B.Vr=new A.qK(2,"clear")
@@ -95406,82 +95406,11 @@ B.MN=s([B.bO,B.kK,B.dv],t.d)
 B.MC=new A.eD(B.am,B.eY,B.aZ,B.MN,null,null)
 B.ME=new A.a88(1,"drawer")
 B.MF=new A.As(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Oh=s(["Personal Growth","Journey","Self-Improvement"],t.s)
-B.Dw=new A.cF("personal_1","Personal Journey","Personal","2024","Personal reflections and professional growth journey.","assets/images/sagar_persional_photo_1.png",B.iq,"\ud83d\udc64 Personal",B.Oh,B.am)
-B.Kw=new A.a4(63268,"MaterialIcons",!1)
-B.PS=s(["Path Building","Learning","Vision"],t.s)
-B.Dq=new A.cF("personal_2","Building My Path","Personal","2024","Learning, evolving, and building a strong foundation for the future.","assets/images/sagar_persional_photo_2.png",B.Kw,"\ud83d\udc64 Personal",B.PS,B.am)
-B.KR=new A.a4(983364,"MaterialIcons",!1)
-B.OJ=s(["Life Balance","Perspectives","Interests"],t.s)
-B.DC=new A.cF("personal_3","Beyond Coding","Personal","2024","Exploring life experiences, hobbies, and personal perspectives.","assets/images/sagar_persional_photo_3.jpg",B.KR,"\ud83d\udc64 Personal",B.OJ,B.am)
-B.Ky=new A.a4(63336,"MaterialIcons",!1)
-B.O7=s(["Milestone","Reflection","Experience"],t.s)
-B.DE=new A.cF("personal_4","Personal Milestone","Personal","2024","Key moments and personal milestones along the way.","assets/images/sagar_persional_photo_4.jpg",B.Ky,"\ud83d\udc64 Personal",B.O7,B.am)
-B.O0=s(["Insights","Perspective","Mindset"],t.s)
-B.Dp=new A.cF("personal_5","Life & Perspective","Personal","2024","Gaining fresh insights through continuous learning and experiences.","assets/images/sagar_persional_photo_5.jpg",B.qt,"\ud83d\udc64 Personal",B.O0,B.am)
-B.Kp=new A.a4(63015,"MaterialIcons",!1)
-B.NR=s(["Focus","Determination","Consistency"],t.s)
-B.Dx=new A.cF("personal_6","Focus & Drive","Personal","2024","Staying committed to long-term personal and professional goals.","assets/images/sagar_persional_photo_7.jpg",B.Kp,"\ud83d\udc64 Personal",B.NR,B.am)
-B.Kr=new A.a4(63063,"MaterialIcons",!1)
-B.O6=s(["Memories","Snapshots","Life"],t.s)
-B.Ds=new A.cF("personal_7","Moments & Memories","Personal","2024","Cherished memories and personal life snapshots.","assets/images/sagar_persional_photo_9.jpg",B.Kr,"\ud83d\udc64 Personal",B.O6,B.am)
-B.Kh=new A.a4(62814,"MaterialIcons",!1)
-B.Nj=s(["Clarity","Growth","Forward Drive"],t.s)
-B.DG=new A.cF("personal_8","Personal Path","Personal","2024","Embracing challenges and stepping forward with clarity.","assets/images/sagar_persional_photo_10.jpg",B.Kh,"\ud83d\udc64 Personal",B.Nj,B.am)
-B.KO=new A.a4(983269,"MaterialIcons",!1)
-B.Ps=s(["Public Speaking","NSS Leadership","Community Drive"],t.s)
-B.Dm=new A.cF("nss_1","NSS Public Speaking","NSS & Volunteering","2024","Speaking into a microphone during a public NSS community activity and youth engagement drive.","assets/images/sagar_NSS_photo_with_mike_4.jpg",B.KO,"\ud83d\udcdc NSS & Volunteering",B.Ps,B.am)
-B.Ko=new A.a4(63003,"MaterialIcons",!1)
-B.OC=s(["NSS Certificate","Social Service","Recognition"],t.s)
-B.Dz=new A.cF("nss_2","NSS Certificate","NSS & Volunteering","2024","Receiving official NSS (National Service Scheme) certificate for dedicated social service and volunteering.","assets/images/sagar_NSS_certificate.jpg",B.Ko,"\ud83d\udcdc NSS & Volunteering",B.OC,B.am)
-B.KZ=new A.a4(983707,"MaterialIcons",!1)
-B.On=s(["Community Work","Social Awareness","Volunteering"],t.s)
-B.DD=new A.cF("nss_3","Community & Social Activity","NSS & Volunteering","2024","Participating in public social awareness campaigns, environmental initiatives, and community service.","assets/images/sagar_NSS_publicphoto_7.JPG",B.KZ,"\ud83d\udcdc NSS & Volunteering",B.On,B.am)
-B.KW=new A.a4(983593,"MaterialIcons",!1)
-B.Ot=s(["Stage Drama","NSS Cultural","Social Message"],t.s)
-B.Dy=new A.cF("drama_1","NSS Drama Performance","Drama & Creative","2024","Stage drama performance conveying social awareness messages during NSS cultural events.","assets/images/sagar_NSS_photo_1.JPG",B.KW,"\ud83c\udfad Stage Role",B.Ot,B.am)
-B.KJ=new A.a4(63674,"MaterialIcons",!1)
-B.NW=s(["Stage Role","Character Acting","Team Performance"],t.s)
-B.DJ=new A.cF("drama_2","Stage Role & Dialogue","Drama & Creative","2024","Performing a character role on stage holding a microphone alongside fellow student drama cast members.","assets/images/sagar_NSS_photo_2.JPG",B.KJ,"\ud83c\udfad Stage Role",B.NW,B.am)
-B.KF=new A.a4(63659,"MaterialIcons",!1)
-B.Px=s(["Cultural Stage","Acting Expression","Live Audience"],t.s)
-B.DB=new A.cF("drama_3","Cultural Performance","Drama & Creative","2024","Theatrical performance and artistic expression in front of a live college audience.","assets/images/sagar_NSS_photo_3.JPG",B.KF,"\ud83c\udfad Stage Role",B.Px,B.am)
-B.Kn=new A.a4(62996,"MaterialIcons",!1)
-B.NS=s(["Social Awareness","Theatrical Play","Impact"],t.s)
-B.DA=new A.cF("drama_4","Social Awareness Play","Drama & Creative","2024","Enacting a social awareness script highlighting key youth and societal topics.","assets/images/sagar_NSS_photo_5.JPG",B.Kn,"\ud83c\udfad Stage Role",B.NS,B.am)
-B.L2=new A.a4(983820,"MaterialIcons",!1)
-B.Pf=s(["Creative Expression","Stage Presence","Drama Cast"],t.s)
-B.DH=new A.cF("drama_5","Creative Stage Performance","Drama & Creative","2024","Collaborative stage act demonstrating creative expression, dialogue delivery, and stage presence.","assets/images/sagar_NSS_photo_6.JPG",B.L2,"\ud83c\udfad Stage Role",B.Pf,B.am)
-B.Kx=new A.a4(63335,"MaterialIcons",!1)
-B.PN=s(["Physical Fitness","Healthy Habits","Training"],t.s)
-B.Du=new A.cF("gym_1","Fitness Journey","Gym & Fitness","2023 - Present","Dedication to physical fitness, healthy habits, and daily strength training routines.","assets/images/sagar_gymphoto_1.jpg",B.Kx,"\ud83c\udfcb\ufe0f Gym & Fitness",B.PN,B.I)
-B.KN=new A.a4(983236,"MaterialIcons",!1)
-B.O4=s(["Strength","Discipline","Mental Clarity"],t.s)
-B.DF=new A.cF("gym_2","Strength & Discipline","Gym & Fitness","2023 - Present","Strength training discipline that builds mental clarity, focus, and physical endurance.","assets/images/sagar_gymphoto_2.jpg",B.KN,"\ud83c\udfcb\ufe0f Gym & Discipline",B.O4,B.I)
-B.KP=new A.a4(983287,"MaterialIcons",!1)
-B.NM=s(["Consistency","Stamina","Energy"],t.s)
-B.DI=new A.cF("gym_3","Training & Consistency","Gym & Fitness","2023 - Present","Maintaining consistent workouts for sustained energy, physical health, and stamina.","assets/images/sagar_gymphoto_3.jpg",B.KP,"\ud83c\udfcb\ufe0f Gym & Consistency",B.NM,B.I)
-B.KQ=new A.a4(983342,"MaterialIcons",!1)
-B.Ph=s(["Physics: 85.33%","SGPA: 8.09","Academic Progress"],t.s)
-B.Dr=new A.cF("college_1","Academic Achievement","College & Education","2024","Physics Department academic result milestone \u2014 Sagar V. Borkar: Phy. 128 (85.33%), SGPA 8.09 (73.40%).","assets/images/sagar_Phy_SGPA_photo.jpg",B.KQ,"\ud83c\udf93 Academic Result",B.Ph,B.am)
-B.KH=new A.a4(63668,"MaterialIcons",!1)
-B.PF=s(["B.Sc. Computer Science","NEP Programme","Higher Education"],t.s)
-B.Dt=new A.cF("college_2","B.Sc. Computer Science (NEP)","College & Education","2024 - 2025","Pursuing B.Sc. Computer Science under National Education Policy (NEP) Programme.","assets/images/sagar_education_1.jpg",B.KH,"\ud83c\udf93 Education / NEP",B.PF,B.am)
-B.KA=new A.a4(63432,"MaterialIcons",!1)
-B.OF=s(["College Campus","Tech Events"],t.s)
-B.Dn=new A.cF("college_3","College Life & Memories","College & Education","2024 - 2025","College campus memories, tech events, and learning experiences.","assets/images/sagar_college_photo.jpg",B.KA,"\ud83c\udf93 Campus Life",B.OF,B.eY)
-B.KL=new A.a4(983181,"MaterialIcons",!1)
-B.N5=s(["Personal Snapshot","Life Experience"],t.s)
-B.Dv=new A.cF("personal_9","Personal Milestone","Personal","2025","Memorable moment and personal journey snapshot.","assets/images/IMG_20250317_184157_596.jpg",B.KL,"\ud83d\udc64 Personal",B.N5,B.am)
-B.Kk=new A.a4(62870,"MaterialIcons",!1)
-B.Op=s(["Reflection","Growth"],t.s)
-B.Do=new A.cF("personal_10","Personal Perspective","Personal","2025","Growth, reflection, and self-improvement.","assets/images/retouch_2025083022023435.jpg",B.Kk,"\ud83d\udc64 Personal",B.Op,B.am)
-B.qK=s([B.Dw,B.Dq,B.DC,B.DE,B.Dp,B.Dx,B.Ds,B.DG,B.Dm,B.Dz,B.DD,B.Dy,B.DJ,B.DB,B.DA,B.DH,B.Du,B.DF,B.DI,B.Dr,B.Dt,B.Dn,B.Dv,B.Do],A.aA("x<cF>"))
 B.OM=s([1373.2198709594231,-1100.4251190754821,-7.278681089101213],t.n)
 B.Ol=s([-271.815969077903,559.6580465940733,-32.46047482791194],t.n)
 B.PT=s([1.9622899599665666,-57.173814538844006,308.7233197812385],t.n)
 B.MJ=s([B.OM,B.Ol,B.PT],t.zg)
-B.qL=s(["text","multiline","number","phone","datetime","emailAddress","url","visiblePassword","name","address","none","webSearch","twitter"],t.s)
+B.qK=s(["text","multiline","number","phone","datetime","emailAddress","url","visiblePassword","name","address","none","webSearch","twitter"],t.s)
 B.iP={count:0,suffix:1,label:2}
 B.RX=new A.b3(B.iP,[1,"+","Social App Built"],t.R)
 B.RZ=new A.b3(B.iP,[20,"+","Screens Designed"],t.R)
@@ -95515,7 +95444,7 @@ B.Oo=s([0.41233895,0.35762064,0.18051042],t.n)
 B.NK=s([0.2126,0.7152,0.0722],t.n)
 B.PM=s([0.01932141,0.11916382,0.95034478],t.n)
 B.dB=s([B.Oo,B.NK,B.PM],t.zg)
-B.qM=s([0,4,12,1,5,13,3,7,15],t.t)
+B.qL=s([0,4,12,1,5,13,3,7,15],t.t)
 B.a4v=new A.h7(0,1)
 B.a4A=new A.h7(0.5,1)
 B.a4D=new A.h7(0.5375,0.75)
@@ -95551,7 +95480,7 @@ B.O8=s([4.08649929,2.23811846],t.n)
 B.Or=s([4.85481134,2.47563463],t.n)
 B.NJ=s([5.62945551,2.72948597],t.n)
 B.O2=s([6.43023796,2.98020421],t.n)
-B.qN=s([B.O1,B.MQ,B.Pg,B.Pk,B.NG,B.NO,B.Oz,B.O8,B.Or,B.NJ,B.O2],t.zg)
+B.qM=s([B.O1,B.MQ,B.Pg,B.Pk,B.NG,B.NO,B.Oz,B.O8,B.Or,B.NJ,B.O2],t.zg)
 B.qe=new A.a4(57699,"MaterialIcons",!1)
 B.Lm=new A.bJ(B.qe,7,B.cA,null,null)
 B.bV=new A.bL(6,null,null,null)
@@ -95608,15 +95537,15 @@ B.cf=new A.eP(9,"counter")
 B.dh=new A.eP(10,"container")
 B.O3=s([B.b0,B.bm,B.az,B.bx,B.by,B.bz,B.at,B.bc,B.ce,B.cf,B.dh],A.aA("x<eP>"))
 B.PU=new A.pQ("en",null,"US")
-B.qO=s([B.PU],t.ss)
-B.qP=s([0,41,61,101,131,181,251,301,360],t.n)
+B.qN=s([B.PU],t.ss)
+B.qO=s([0,41,61,101,131,181,251,301,360],t.n)
 B.a4j=new A.m_(0,0)
 B.a4o=new A.m_(1,0.05)
 B.a4m=new A.m_(3,0.08)
 B.a4n=new A.m_(6,0.11)
 B.a4l=new A.m_(8,0.12)
 B.a4k=new A.m_(12,0.14)
-B.qQ=s([B.a4j,B.a4o,B.a4m,B.a4n,B.a4l,B.a4k],A.aA("x<m_>"))
+B.qP=s([B.a4j,B.a4o,B.a4m,B.a4n,B.a4l,B.a4k],A.aA("x<m_>"))
 B.O5=s(["This platform is owned and operated to provide professional app and website development services.","This platform is created to provide services and solutions.","By using this platform, you agree to follow all rules.","We may update these terms at any time without prior notice."],t.s)
 B.RE=new A.b3(B.br,["01","About",B.qg,B.O5],t.R)
 B.Kf=new A.a4(62589,"MaterialIcons",!1)
@@ -95632,7 +95561,7 @@ B.Kg=new A.a4(62638,"MaterialIcons",!1)
 B.NN=s(["We are not responsible for misuse.","We are not liable for indirect damages.","Use this platform at your own risk."],t.s)
 B.RA=new A.b3(B.br,["05","Limitations",B.Kg,B.NN],t.R)
 B.iy=s([B.RE,B.RG,B.RB,B.RH,B.RA],t.H7)
-B.qR=s([0,21,51,121,151,191,271,321,360],t.n)
+B.qQ=s([0,21,51,121,151,191,271,321,360],t.n)
 B.Og=s(["All","Personal","NSS & Volunteering","Drama & Creative","College & Education","Gym & Fitness"],t.s)
 B.Ok=s([-1,0,0,1,0,0,-1,0,1,0,0,0,-1,1,0,1,1,1,1,0],t.n)
 B.E3=new A.JG(2,"outer")
@@ -95640,6 +95569,77 @@ B.oN=new A.q(0.09803921568627451,0,0,0,B.f)
 B.j=new A.h(0,0)
 B.Ex=new A.bD(0.2,B.E3,B.oN,B.j,11)
 B.Om=s([B.Ex],t.V)
+B.Oh=s(["Personal Growth","Journey","Self-Improvement"],t.s)
+B.DE=new A.cF("personal_1","Personal Journey","Personal","2024","Personal reflections and professional growth journey.","assets/images/sagar_persional_photo_1.webp",B.iq,"\ud83d\udc64 Personal",B.Oh,B.am)
+B.Kw=new A.a4(63268,"MaterialIcons",!1)
+B.PS=s(["Path Building","Learning","Vision"],t.s)
+B.DA=new A.cF("personal_2","Building My Path","Personal","2024","Learning, evolving, and building a strong foundation for the future.","assets/images/sagar_persional_photo_2.webp",B.Kw,"\ud83d\udc64 Personal",B.PS,B.am)
+B.KR=new A.a4(983364,"MaterialIcons",!1)
+B.OJ=s(["Life Balance","Perspectives","Interests"],t.s)
+B.DC=new A.cF("personal_3","Beyond Coding","Personal","2024","Exploring life experiences, hobbies, and personal perspectives.","assets/images/sagar_persional_photo_3.webp",B.KR,"\ud83d\udc64 Personal",B.OJ,B.am)
+B.Ky=new A.a4(63336,"MaterialIcons",!1)
+B.O7=s(["Milestone","Reflection","Experience"],t.s)
+B.DB=new A.cF("personal_4","Personal Milestone","Personal","2024","Key moments and personal milestones along the way.","assets/images/sagar_persional_photo_4.webp",B.Ky,"\ud83d\udc64 Personal",B.O7,B.am)
+B.O0=s(["Insights","Perspective","Mindset"],t.s)
+B.Dw=new A.cF("personal_5","Life & Perspective","Personal","2024","Gaining fresh insights through continuous learning and experiences.","assets/images/sagar_persional_photo_5.webp",B.qt,"\ud83d\udc64 Personal",B.O0,B.am)
+B.Kp=new A.a4(63015,"MaterialIcons",!1)
+B.NR=s(["Focus","Determination","Consistency"],t.s)
+B.Dp=new A.cF("personal_6","Focus & Drive","Personal","2024","Staying committed to long-term personal and professional goals.","assets/images/sagar_persional_photo_7.webp",B.Kp,"\ud83d\udc64 Personal",B.NR,B.am)
+B.Kr=new A.a4(63063,"MaterialIcons",!1)
+B.O6=s(["Memories","Snapshots","Life"],t.s)
+B.DH=new A.cF("personal_7","Moments & Memories","Personal","2024","Cherished memories and personal life snapshots.","assets/images/sagar_persional_photo_9.webp",B.Kr,"\ud83d\udc64 Personal",B.O6,B.am)
+B.Kh=new A.a4(62814,"MaterialIcons",!1)
+B.Nj=s(["Clarity","Growth","Forward Drive"],t.s)
+B.Dy=new A.cF("personal_8","Personal Path","Personal","2024","Embracing challenges and stepping forward with clarity.","assets/images/sagar_persional_photo_10.webp",B.Kh,"\ud83d\udc64 Personal",B.Nj,B.am)
+B.KO=new A.a4(983269,"MaterialIcons",!1)
+B.Ps=s(["Public Speaking","NSS Leadership","Community Drive"],t.s)
+B.Dv=new A.cF("nss_1","NSS Public Speaking","NSS & Volunteering","2024","Speaking into a microphone during a public NSS community activity and youth engagement drive.","assets/images/sagar_NSS_photo_with_mike_4.webp",B.KO,"\ud83d\udcdc NSS & Volunteering",B.Ps,B.am)
+B.Ko=new A.a4(63003,"MaterialIcons",!1)
+B.OC=s(["NSS Certificate","Social Service","Recognition"],t.s)
+B.DI=new A.cF("nss_2","NSS Certificate","NSS & Volunteering","2024","Receiving official NSS (National Service Scheme) certificate for dedicated social service and volunteering.","assets/images/sagar_NSS_certificate.webp",B.Ko,"\ud83d\udcdc NSS & Volunteering",B.OC,B.am)
+B.KZ=new A.a4(983707,"MaterialIcons",!1)
+B.On=s(["Community Work","Social Awareness","Volunteering"],t.s)
+B.DD=new A.cF("nss_3","Community & Social Activity","NSS & Volunteering","2024","Participating in public social awareness campaigns, environmental initiatives, and community service.","assets/images/sagar_NSS_publicphoto_7.webp",B.KZ,"\ud83d\udcdc NSS & Volunteering",B.On,B.am)
+B.KW=new A.a4(983593,"MaterialIcons",!1)
+B.Ot=s(["Stage Drama","NSS Cultural","Social Message"],t.s)
+B.Do=new A.cF("drama_1","NSS Drama Performance","Drama & Creative","2024","Stage drama performance conveying social awareness messages during NSS cultural events.","assets/images/sagar_NSS_photo_1.webp",B.KW,"\ud83c\udfad Stage Role",B.Ot,B.am)
+B.KJ=new A.a4(63674,"MaterialIcons",!1)
+B.NW=s(["Stage Role","Character Acting","Team Performance"],t.s)
+B.Dx=new A.cF("drama_2","Stage Role & Dialogue","Drama & Creative","2024","Performing a character role on stage holding a microphone alongside fellow student drama cast members.","assets/images/sagar_NSS_photo_2.webp",B.KJ,"\ud83c\udfad Stage Role",B.NW,B.am)
+B.KF=new A.a4(63659,"MaterialIcons",!1)
+B.Px=s(["Cultural Stage","Acting Expression","Live Audience"],t.s)
+B.DF=new A.cF("drama_3","Cultural Performance","Drama & Creative","2024","Theatrical performance and artistic expression in front of a live college audience.","assets/images/sagar_NSS_photo_3.webp",B.KF,"\ud83c\udfad Stage Role",B.Px,B.am)
+B.Kn=new A.a4(62996,"MaterialIcons",!1)
+B.NS=s(["Social Awareness","Theatrical Play","Impact"],t.s)
+B.Du=new A.cF("drama_4","Social Awareness Play","Drama & Creative","2024","Enacting a social awareness script highlighting key youth and societal topics.","assets/images/sagar_NSS_photo_5.webp",B.Kn,"\ud83c\udfad Stage Role",B.NS,B.am)
+B.L2=new A.a4(983820,"MaterialIcons",!1)
+B.Pf=s(["Creative Expression","Stage Presence","Drama Cast"],t.s)
+B.Dm=new A.cF("drama_5","Creative Stage Performance","Drama & Creative","2024","Collaborative stage act demonstrating creative expression, dialogue delivery, and stage presence.","assets/images/sagar_NSS_photo_6.webp",B.L2,"\ud83c\udfad Stage Role",B.Pf,B.am)
+B.Kx=new A.a4(63335,"MaterialIcons",!1)
+B.PN=s(["Physical Fitness","Healthy Habits","Training"],t.s)
+B.Dr=new A.cF("gym_1","Fitness Journey","Gym & Fitness","2023 - Present","Dedication to physical fitness, healthy habits, and daily strength training routines.","assets/images/sagar_gymphoto_1.webp",B.Kx,"\ud83c\udfcb\ufe0f Gym & Fitness",B.PN,B.I)
+B.KN=new A.a4(983236,"MaterialIcons",!1)
+B.O4=s(["Strength","Discipline","Mental Clarity"],t.s)
+B.Dq=new A.cF("gym_2","Strength & Discipline","Gym & Fitness","2023 - Present","Strength training discipline that builds mental clarity, focus, and physical endurance.","assets/images/sagar_gymphoto_2.webp",B.KN,"\ud83c\udfcb\ufe0f Gym & Discipline",B.O4,B.I)
+B.KP=new A.a4(983287,"MaterialIcons",!1)
+B.NM=s(["Consistency","Stamina","Energy"],t.s)
+B.Dn=new A.cF("gym_3","Training & Consistency","Gym & Fitness","2023 - Present","Maintaining consistent workouts for sustained energy, physical health, and stamina.","assets/images/sagar_gymphoto_3.webp",B.KP,"\ud83c\udfcb\ufe0f Gym & Consistency",B.NM,B.I)
+B.KQ=new A.a4(983342,"MaterialIcons",!1)
+B.Ph=s(["Physics: 85.33%","SGPA: 8.09","Academic Progress"],t.s)
+B.Dt=new A.cF("college_1","Academic Achievement","College & Education","2024","Physics Department academic result milestone \u2014 Sagar V. Borkar: Phy. 128 (85.33%), SGPA 8.09 (73.40%).","assets/images/sagar_Phy_SGPA_photo.webp",B.KQ,"\ud83c\udf93 Academic Result",B.Ph,B.am)
+B.KH=new A.a4(63668,"MaterialIcons",!1)
+B.PF=s(["B.Sc. Computer Science","NEP Programme","Higher Education"],t.s)
+B.DJ=new A.cF("college_2","B.Sc. Computer Science (NEP)","College & Education","2024 - 2025","Pursuing B.Sc. Computer Science under National Education Policy (NEP) Programme.","assets/images/sagar_education_1.webp",B.KH,"\ud83c\udf93 Education / NEP",B.PF,B.am)
+B.KA=new A.a4(63432,"MaterialIcons",!1)
+B.OF=s(["College Campus","Tech Events"],t.s)
+B.DG=new A.cF("college_3","College Life & Memories","College & Education","2024 - 2025","College campus memories, tech events, and learning experiences.","assets/images/sagar_college_photo.webp",B.KA,"\ud83c\udf93 Campus Life",B.OF,B.eY)
+B.KL=new A.a4(983181,"MaterialIcons",!1)
+B.N5=s(["Personal Snapshot","Life Experience"],t.s)
+B.Dz=new A.cF("personal_9","Personal Milestone","Personal","2025","Memorable moment and personal journey snapshot.","assets/images/IMG_20250317_184157_596.webp",B.KL,"\ud83d\udc64 Personal",B.N5,B.am)
+B.Kk=new A.a4(62870,"MaterialIcons",!1)
+B.Op=s(["Reflection","Growth"],t.s)
+B.Ds=new A.cF("personal_10","Personal Perspective","Personal","2025","Growth, reflection, and self-improvement.","assets/images/retouch_2025083022023435.webp",B.Kk,"\ud83d\udc64 Personal",B.Op,B.am)
+B.qR=s([B.DE,B.DA,B.DC,B.DB,B.Dw,B.Dp,B.DH,B.Dy,B.Dv,B.DI,B.DD,B.Do,B.Dx,B.DF,B.Du,B.Dm,B.Dr,B.Dq,B.Dn,B.Dt,B.DJ,B.DG,B.Dz,B.Ds],A.aA("x<cF>"))
 B.C8=new A.D4(0,"left")
 B.C9=new A.D4(1,"right")
 B.Oq=s([B.C8,B.C9],A.aA("x<D4>"))
@@ -95673,6 +95673,16 @@ B.a2l=new A.bO("\ud83c\udf0d Travel",null,null,null,null,null,null,null,null)
 B.FY=new A.fp(B.a2l,null,null,null,null,null,null)
 B.OH=s([B.FX,B.G_,B.FW,B.FY],t.p)
 B.ON=s([35,30,20,25,30,35,30,25,25],t.n)
+B.NP=s(["Flutter","Dart","Supabase","Cloudinary","REST APIs"],t.s)
+B.OI=s(["\ud83d\udcac Real-time Chat & Direct Messaging","\ud83d\udcf0 Social Feed & Media Posts","\ud83d\udc64 User Profiles & Authentication","\u26a1 Supabase Backend & Database"],t.s)
+B.Ur=new A.lq("SocialProX","Cross-platform Social Media Application","A real-world cross-platform social media application with real-time chat, posts, media sharing, and instant feed updates.","assets/images/premium_futuristic_S_transparent.webp",B.NP,B.OI,"\ud83d\udcf1 Published on Play Store","Social Media / Networking",u.v,null,!0)
+B.NQ=s(["Flutter","Dart","Riverpod","Supabase"],t.s)
+B.Pb=s(["\ud83d\udcdd Practice Tests & Mock Exams (NEET, JEE, SSC, UPSC, Banking, Railway)","\ud83d\udcca Exam-Focused Analytics & Performance Tracking","\u26a1 Riverpod State Management & Supabase Integration"],t.s)
+B.Us=new A.lq("MockTestProX","Competitive Exam Prep & Mock Test App","A competitive exam preparation and mock-test application built for exams such as NEET, JEE, SSC, UPSC, Banking, and Railway with practice tests & analytics.","assets/images/MockTestProx_.webp",B.NQ,B.Pb,"\ud83d\udea7 In Development","Education / Exam Preparation",null,null,!1)
+B.Ns=s(["Flutter","Dart","Material 3","Riverpod"],t.s)
+B.OB=s(["\ud83c\udfa8 Responsive Material 3 Design","\ud83d\udcf8 Interactive Life & Achievements Lightbox","\ud83c\udf13 Dark & Light Theme Modes","\u26a1 Fast & Smooth 60 FPS Performance"],t.s)
+B.Ut=new A.lq("Sagar Borkar Portfolio","Developer & Product Showcase Portfolio","Personal cross-platform developer portfolio showcasing real-world software products, technical skills, and interactive photo gallery.","assets/images/sagar_borkar_Sg.webp",B.Ns,B.OB,"\ud83d\udfe2 Live Portfolio","Developer Portfolio",null,"https://github.com/sagarborkar0888-wq",!1)
+B.qS=s([B.Ur,B.Us,B.Ut],A.aA("x<lq>"))
 B.OR=s(["click","scroll"],t.s)
 B.EC=new A.rW()
 B.j7=new A.Pb(1,"page")
@@ -95693,15 +95703,15 @@ B.mu=new A.dR("Services",5,"services")
 B.mr=new A.dR("Contact",6,"contact")
 B.OW=s([B.ms,B.xa,B.SE,B.mt,B.xb,B.mu,B.mr],A.aA("x<dR>"))
 B.P5=s([],t.QP)
-B.qU=s([],A.aA("x<aYa>"))
+B.qV=s([],A.aA("x<aYa>"))
 B.P0=s([],t.D)
 B.P8=s([],t.fJ)
 B.P_=s([],t.ER)
 B.a5O=s([],t.ss)
-B.qV=s([],t.tc)
+B.qW=s([],t.tc)
 B.iA=s([],t.jl)
-B.qW=s([],t.wi)
-B.qT=s([],A.aA("x<NC>"))
+B.qX=s([],t.wi)
+B.qU=s([],A.aA("x<NC>"))
 B.P1=s([],A.aA("x<jT<@>>"))
 B.m5=s([],t.AO)
 B.P3=s([],t.D1)
@@ -95711,22 +95721,12 @@ B.OZ=s([],t.AS)
 B.P7=s([],t.p)
 B.P9=s([],t.n)
 B.OY=s([],t.t)
-B.qS=s([],t.ee)
+B.qT=s([],t.ee)
 B.P4=s([],t._m)
 B.CD=new A.j(!0,B.r,null,null,null,null,12,B.u,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.a2f=new A.bO("Explore Life & Achievements",null,B.CD,null,null,null,null,null,null)
 B.LK=new A.bJ(B.lX,15,B.r,null,null)
 B.Pe=s([B.a2f,B.bV,B.LK],t.p)
-B.NP=s(["Flutter","Dart","Supabase","Cloudinary","REST APIs"],t.s)
-B.OI=s(["\ud83d\udcac Real-time Chat & Direct Messaging","\ud83d\udcf0 Social Feed & Media Posts","\ud83d\udc64 User Profiles & Authentication","\u26a1 Supabase Backend & Database"],t.s)
-B.Us=new A.lq("SocialProX","Cross-platform Social Media Application","A real-world cross-platform social media application with real-time chat, posts, media sharing, and instant feed updates.","assets/images/premium_futuristic_S_transparent.png",B.NP,B.OI,"\ud83d\udcf1 Published on Play Store","Social Media / Networking",u.v,null,!0)
-B.NQ=s(["Flutter","Dart","Riverpod","Supabase"],t.s)
-B.Pb=s(["\ud83d\udcdd Practice Tests & Mock Exams (NEET, JEE, SSC, UPSC, Banking, Railway)","\ud83d\udcca Exam-Focused Analytics & Performance Tracking","\u26a1 Riverpod State Management & Supabase Integration"],t.s)
-B.Ur=new A.lq("MockTestProX","Competitive Exam Prep & Mock Test App","A competitive exam preparation and mock-test application built for exams such as NEET, JEE, SSC, UPSC, Banking, and Railway with practice tests & analytics.","assets/images/MockTestProx_.png",B.NQ,B.Pb,"\ud83d\udea7 In Development","Education / Exam Preparation",null,null,!1)
-B.Ns=s(["Flutter","Dart","Material 3","Riverpod"],t.s)
-B.OB=s(["\ud83c\udfa8 Responsive Material 3 Design","\ud83d\udcf8 Interactive Life & Achievements Lightbox","\ud83c\udf13 Dark & Light Theme Modes","\u26a1 Fast & Smooth 60 FPS Performance"],t.s)
-B.Ut=new A.lq("Sagar Borkar Portfolio","Developer & Product Showcase Portfolio","Personal cross-platform developer portfolio showcasing real-world software products, technical skills, and interactive photo gallery.","assets/images/sagar_borkar_Sg.jpg",B.Ns,B.OB,"\ud83d\udfe2 Live Portfolio","Developer Portfolio",null,"https://github.com/sagarborkar0888-wq",!1)
-B.qX=s([B.Us,B.Ur,B.Ut],A.aA("x<lq>"))
 B.ST=new A.h(0,2)
 B.Ew=new A.bD(0.75,B.a_,B.oN,B.ST,1.5)
 B.Pl=s([B.Ew],t.V)
