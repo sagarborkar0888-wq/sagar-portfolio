@@ -128,7 +128,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                           border: Border.all(color: Colors.white24),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.blue.withOpacity(0.15),
+                              color: Colors.blue.withValues(alpha: 0.15),
                               blurRadius: 15,
                             ),
                           ],
@@ -168,7 +168,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                                 vertical: 4,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.blue.withOpacity(0.2),
+                                color: Colors.blue.withValues(alpha: 0.2),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Text(

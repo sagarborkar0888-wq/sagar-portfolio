@@ -15,12 +15,12 @@ class _PricingSectionState extends State<PricingSection> {
 
   // Project Estimator State
   int _selectedTierIndex = 1; // Default to Standard App (index 1)
-  int _selectedScreenIndex = 1; // Default to 6-15 screens
+  int _selectedScreenIndex = 1; // Default to 5-10 screens
 
   static const List<String> screenRanges = [
-    '2–5 Screens',
-    '6–15 Screens',
-    '16–30+ Screens',
+    '2–4 Screens',
+    '5–10 Screens',
+    '11–20+ Screens',
   ];
 
   @override
@@ -157,15 +157,24 @@ Thank you!
                         title: 'Basic App',
                         priceInr: '₹10,000 – ₹25,000',
                         priceUsd: '\$120 – \$300',
-                        screens: '2–5 Screens',
+                        screens: '2–4 Screens',
                         delivery: '5–10 Days',
                         revisions: '1 Revision',
-                        support: 'App Delivery Only',
+                        support: '7 Days Bug Fix Support',
                         features: [
                           'Clean & Responsive UI',
-                          'Core Functional Features',
+                          'Basic/Core Features Based on Agreed Scope',
+                          'Material 3 UI',
+                          'Clean Source Code',
                           'Signed APK/AAB Build',
-                          'Standard Code Setup',
+                          'Basic Testing',
+                        ],
+                        notIncludedFeatures: [
+                          'Complex backend',
+                          'Advanced API integrations',
+                          'Advanced authentication',
+                          'Admin panel',
+                          'Complex 3rd-party integrations',
                         ],
                         isRecommended: false,
                         isDark: isDark,
@@ -175,15 +184,21 @@ Thank you!
                         title: 'Standard App',
                         priceInr: '₹25,000 – ₹60,000',
                         priceUsd: '\$300 – \$750',
-                        screens: '6–15 Screens',
+                        screens: '5–10 Screens',
                         delivery: '10–18 Days',
                         revisions: '2 Revisions',
-                        support: '7 Days Post-Delivery Fixes',
+                        support: '14 Days Bug Fix Support',
                         features: [
-                          'User Auth (Login/Signup)',
-                          'REST API & Database Integration',
+                          'Clean & Responsive UI',
                           'Improved Material 3 UI/UX',
-                          'Supabase/Firebase Backend',
+                          'User Auth (Login/Signup)',
+                          'REST API Integration',
+                          'Database Setup',
+                          'Supabase/Firebase Integration',
+                          'Core Business/App Logic',
+                          'Clean & Maintainable Code',
+                          'Signed APK/AAB Build',
+                          'Testing & Bug Fixing',
                         ],
                         isRecommended: true,
                         isDark: isDark,
@@ -193,14 +208,22 @@ Thank you!
                         title: 'Advanced App',
                         priceInr: '₹60,000 – ₹1,50,000+',
                         priceUsd: '\$750 – \$1,800+',
-                        screens: '16–30+ Screens',
+                        screens: '11–20+ Screens',
                         delivery: '3–5 Weeks',
-                        revisions: 'Up to 5 Revisions',
-                        support: '30 Days Priority Support',
+                        revisions: '2–3 Revisions',
+                        support: '30 Days Bug Fix Support',
                         features: [
-                          'Full-Featured Architecture',
-                          'Scalable Production Code',
-                          'Premium UI/UX Animations',
+                          'Standard package capabilities, plus advanced features based on project scope',
+                          'Scalable App Architecture',
+                          'Advanced/Custom Features Based on Project Scope',
+                          'Advanced API & Database Integration',
+                          'Premium UI/UX',
+                          'Animations & Micro-interactions',
+                          'Performance Optimization',
+                          'Advanced Authentication',
+                          'Production Preparation',
+                          'Signed APK/AAB Build',
+                          'Testing & Performance Checks',
                           'Priority Launch Support',
                         ],
                         isRecommended: false,
@@ -215,14 +238,24 @@ Thank you!
                               title: 'Basic App',
                               priceInr: '₹10,000 – ₹25,000',
                               priceUsd: '\$120 – \$300',
-                              screens: '2–5 Screens',
+                              screens: '2–4 Screens',
                               delivery: '5–10 Days',
                               revisions: '1 Revision',
-                              support: 'App Delivery Only',
+                              support: '7 Days Bug Fix Support',
                               features: [
                                 'Clean & Responsive UI',
-                                'Core Features',
+                                'Basic/Core Features Based on Agreed Scope',
+                                'Material 3 UI',
+                                'Clean Source Code',
                                 'Signed APK/AAB Build',
+                                'Basic Testing',
+                              ],
+                              notIncludedFeatures: [
+                                'Complex backend',
+                                'Advanced API integrations',
+                                'Advanced authentication',
+                                'Admin panel',
+                                'Complex 3rd-party integrations',
                               ],
                               isRecommended: false,
                               isDark: isDark,
@@ -234,14 +267,21 @@ Thank you!
                               title: 'Standard App',
                               priceInr: '₹25,000 – ₹60,000',
                               priceUsd: '\$300 – \$750',
-                              screens: '6–15 Screens',
+                              screens: '5–10 Screens',
                               delivery: '10–18 Days',
                               revisions: '2 Revisions',
-                              support: '7 Days Bug Fixes',
+                              support: '14 Days Bug Fix Support',
                               features: [
-                                'User Login & Auth',
-                                'API & Database Setup',
-                                'Improved M3 UI/UX',
+                                'Clean & Responsive UI',
+                                'Improved Material 3 UI/UX',
+                                'User Auth (Login/Signup)',
+                                'REST API Integration',
+                                'Database Setup',
+                                'Supabase/Firebase Integration',
+                                'Core Business/App Logic',
+                                'Clean & Maintainable Code',
+                                'Signed APK/AAB Build',
+                                'Testing & Bug Fixing',
                               ],
                               isRecommended: true,
                               isDark: isDark,
@@ -253,14 +293,23 @@ Thank you!
                               title: 'Advanced App',
                               priceInr: '₹60,000 – ₹1,50,000+',
                               priceUsd: '\$750 – \$1,800+',
-                              screens: '16–30+ Screens',
+                              screens: '11–20+ Screens',
                               delivery: '3–5 Weeks',
-                              revisions: 'Up to 5 Revisions',
-                              support: '30 Days Support',
+                              revisions: '2–3 Revisions',
+                              support: '30 Days Bug Fix Support',
                               features: [
-                                'Scalable Architecture',
-                                'Premium Animations',
-                                'Priority Support',
+                                'Standard package capabilities, plus advanced features based on project scope',
+                                'Scalable App Architecture',
+                                'Advanced/Custom Features Based on Project Scope',
+                                'Advanced API & Database Integration',
+                                'Premium UI/UX',
+                                'Animations & Micro-interactions',
+                                'Performance Optimization',
+                                'Advanced Authentication',
+                                'Production Preparation',
+                                'Signed APK/AAB Build',
+                                'Testing & Performance Checks',
+                                'Priority Launch Support',
                               ],
                               isRecommended: false,
                               isDark: isDark,
@@ -285,6 +334,8 @@ Thank you!
                     ),
                     const SizedBox(height: 10),
                     _buildComparisonTable(isDark, isMobile),
+                    const SizedBox(height: 12),
+                    _buildScopeNotesCard(isDark),
 
                     const SizedBox(height: 24),
 
@@ -504,7 +555,7 @@ Thank you!
           ),
           child: Text(
             '• Estimates are based on total screen count, feature complexity, and API/database integrations.\n'
-            '• All costs are discussed and finalized upfront before work begins — no hidden surprises.\n'
+            '• Project scope and pricing are discussed and finalized upfront before development begins.\n'
             '• Custom features or additional screens beyond standard scope are quoted transparently.',
             style: TextStyle(
               fontSize: 11,
@@ -523,7 +574,7 @@ Thank you!
       {
         'icon': Icons.phone_android_rounded,
         'title': 'Full Stack App Development',
-        'desc': 'Flutter cross-platform Android & iOS development.',
+        'desc': 'Flutter cross-platform mobile app development.',
       },
       {
         'icon': Icons.palette_rounded,
@@ -538,12 +589,14 @@ Thank you!
       {
         'icon': Icons.speed_rounded,
         'title': 'Performance Optimization',
-        'desc': 'Smooth 60fps UI, lazy loading & clean code.',
+        'desc':
+            'Performance optimization, smooth UI rendering, lazy loading & clean code.',
       },
       {
         'icon': Icons.shop_rounded,
         'title': 'App Deployment & Launch',
-        'desc': 'Signed APK/AAB builds & Google Play assistance.',
+        'desc':
+            'Signed APK/AAB builds & Google Play Store deployment assistance.',
       },
     ];
 
@@ -699,6 +752,7 @@ Thank you!
     required String revisions,
     required String support,
     required List<String> features,
+    List<String>? notIncludedFeatures,
     required bool isRecommended,
     required bool isDark,
   }) {
@@ -835,6 +889,45 @@ Thank you!
               );
             }).toList(),
           ),
+
+          if (notIncludedFeatures != null && notIncludedFeatures.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Text(
+              'Not included by default:',
+              style: TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+                color: isDark ? Colors.white54 : Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Column(
+              children: notIncludedFeatures.map((feature) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 3),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.remove_circle_outline_rounded,
+                        size: 11,
+                        color: isDark ? Colors.white38 : Colors.black38,
+                      ),
+                      const SizedBox(width: 5),
+                      Expanded(
+                        child: Text(
+                          feature,
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: isDark ? Colors.white38 : Colors.black45,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
 
           const SizedBox(height: 14),
 
@@ -1029,14 +1122,14 @@ Thank you!
           const Divider(height: 10),
           _buildTableRow(
             'UI Screens',
-            '2–5',
-            '6–15',
-            '16+ Screens',
+            '2–4',
+            '5–10',
+            '11–20+ Screens',
             isDark: isDark,
           ),
           _buildTableRow(
             'UI/UX Quality',
-            'Basic M3',
+            'Basic Material 3',
             'Improved M3',
             'Premium Custom',
             isDark: isDark,
@@ -1055,15 +1148,62 @@ Thank you!
             'Revisions',
             '1 Revision',
             '2 Revisions',
-            'Up to 5',
+            '2–3 Revisions',
             isDark: isDark,
           ),
           _buildTableRow(
-            'Support',
-            'Delivery Only',
-            '7 Days Fixes',
-            '30 Days Priority',
+            'Bug Support',
+            '7 Days',
+            '14 Days',
+            '30 Days Bug Fix Support',
             isDark: isDark,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildScopeNotesCard(bool isDark) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: AppTheme.primaryBlue.withValues(alpha: isDark ? 0.08 : 0.04),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(
+          color: AppTheme.primaryBlue.withValues(alpha: 0.25),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: const [
+              Icon(
+                Icons.info_outline_rounded,
+                size: 14,
+                color: AppTheme.primaryBlue,
+              ),
+              SizedBox(width: 6),
+              Text(
+                'Important Scope Notes',
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: AppTheme.primaryBlue,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            '• Screen limits apply to standard screens. Complex screens, advanced functionality, third-party integrations, additional screens, major revisions, and new requirements may require a separate quote.\n'
+            '• Final pricing is based on project complexity, features, integrations, and overall requirements. The package price is a starting estimate.',
+            style: TextStyle(
+              fontSize: 10,
+              height: 1.45,
+              color: isDark ? Colors.white70 : Colors.black87,
+            ),
           ),
         ],
       ),
@@ -1150,10 +1290,10 @@ Thank you!
             ),
           ),
           child: Text(
-            '• Basic App: 5–10 Days (2–4 days for simple UI)\n'
-            '• Standard App: 10–18 Days (5–10 days core)\n'
-            '• Advanced App: 3–5 Weeks (10–20 days core)\n'
-            '📌 Delivery time may vary depending on prompt feedback & requirements.',
+            '• Basic App: 5–10 Days (2–4 standard screens)\n'
+            '• Standard App: 10–18 Days (5–10 standard screens)\n'
+            '• Advanced App: 3–5 Weeks (11–20+ standard screens)\n'
+            '📌 Delivery timelines may vary based on project complexity, client feedback, approvals, and changes to requirements.',
             style: TextStyle(
               fontSize: 11,
               height: 1.4,
@@ -1190,8 +1330,8 @@ Thank you!
           child: Text(
             '• Basic App: 1 Revision\n'
             '• Standard App: 2 Revisions\n'
-            '• Advanced App: Up to 5 Minor Revisions\n'
-            '📌 Revisions cover layout tweaks, color adjustments & minor bug fixes within initial scope.',
+            '• Advanced App: 2–3 Revisions\n'
+            '📌 A revision means reasonable changes to the agreed project scope/design. New features or major scope changes are NOT revisions and may require additional charges.',
             style: TextStyle(
               fontSize: 11,
               height: 1.4,
@@ -1227,10 +1367,10 @@ Thank you!
             ),
           ),
           child: Text(
-            '• Basic: App delivery only\n'
-            '• Standard: 7 Days minor bug fixes post-launch\n'
-            '• Advanced: 30 Days full launch support + minor updates (Recommended)\n'
-            '• Optional: Monthly Support (₹5k–₹10k/month) for ongoing updates & maintenance.',
+            '• Basic App: 7 Days Bug Fix Support\n'
+            '• Standard App: 14 Days Bug Fix Support\n'
+            '• Advanced App: 30 Days Bug Fix Support (Priority Support Included)\n'
+            '📌 Bug-fix support covers issues related to the delivered agreed scope. New features and new requirements are charged separately.',
             style: TextStyle(
               fontSize: 11,
               height: 1.4,
@@ -1266,7 +1406,7 @@ Thank you!
           ),
           child: Text(
             '• Hosting & Server Costs (AWS, Vercel, Supabase paid tiers)\n'
-            '• Google Play Store & Apple App Store Developer Account Fees (\$25 / \$99)\n'
+            '• Google Play Store Developer Account Fees\n'
             '• Paid Third-Party APIs or SMS Gateways (Twilio, Razorpay gateway fees)',
             style: TextStyle(
               fontSize: 11,
@@ -1306,7 +1446,7 @@ Thank you!
             '• 50% Advance payment to begin development\n'
             '• 50% Remaining payment upon final delivery & verification\n'
             '• Accepted via UPI / Direct Bank Transfer\n'
-            '📌 Payments are non-refundable once development actively begins.',
+            '📌 Advance payments are non-refundable once development begins.',
             style: TextStyle(
               fontSize: 11,
               height: 1.4,
@@ -1358,10 +1498,10 @@ Thank you!
   // 11. 🧮 INTERACTIVE PROJECT COST ESTIMATOR (SYNCHRONIZED TIER & SCREENS)
   Widget _buildEstimatorSection(bool isDark, bool isMobile) {
     final tiers = [
-      {'name': 'Basic App', 'screens': '2–5 Screens'},
-      {'name': 'Standard App', 'screens': '6–15 Screens'},
-      {'name': 'Advanced App', 'screens': '16–30+ Screens'},
-      {'name': 'App + Admin Panel', 'screens': '6–30+ Screens'},
+      {'name': 'Basic App', 'screens': '2–4 Screens'},
+      {'name': 'Standard App', 'screens': '5–10 Screens'},
+      {'name': 'Advanced App', 'screens': '11–20+ Screens'},
+      {'name': 'App + Admin Panel', 'screens': '5–20+ Screens'},
     ];
 
     String getCalculatedPrice() {
@@ -1447,14 +1587,14 @@ Thank you!
                           _selectedTierIndex = index;
                           // Synchronize screen index based on selected App Tier
                           if (index == 0) {
-                            _selectedScreenIndex = 0; // 2-5 screens
+                            _selectedScreenIndex = 0; // 2-4 screens
                           } else if (index == 1) {
-                            _selectedScreenIndex = 1; // 6-15 screens
+                            _selectedScreenIndex = 1; // 5-10 screens
                           } else if (index == 2) {
-                            _selectedScreenIndex = 2; // 16-30+ screens
+                            _selectedScreenIndex = 2; // 11-20+ screens
                           } else if (index == 3 && _selectedScreenIndex == 0) {
                             _selectedScreenIndex =
-                                1; // 6-15 screens default for Admin Panel
+                                1; // 5-10 screens default for Admin Panel
                           }
                         });
                       }
@@ -1586,7 +1726,7 @@ Thank you!
     return Column(
       children: [
         Text(
-          '📌 Final pricing and timeline depend on project requirements, complexity, integrations, and revisions.',
+          '📌 Final pricing is based on project complexity, features, integrations, and overall requirements. The package price is a starting estimate.',
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 11,

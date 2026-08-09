@@ -24,17 +24,17 @@ class UiHelper {
         decoration: BoxDecoration(
           color: const Color(0xFF0D0D0D),
           borderRadius: BorderRadius.circular(25),
-          border: Border.all(color: Colors.white.withOpacity(0.08)),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.9),
+              color: Colors.black.withValues(alpha: 0.9),
               blurRadius: 25,
               spreadRadius: 2,
             ),
             BoxShadow(
               color: highlight
-                  ? Colors.purple.withOpacity(0.25)
-                  : Colors.blue.withOpacity(0.08),
+                  ? Colors.purple.withValues(alpha: 0.25)
+                  : Colors.blue.withValues(alpha: 0.08),
               blurRadius: highlight ? 30 : 20,
             ),
           ],
@@ -54,17 +54,15 @@ class UiHelper {
 
             const SizedBox(height: 12),
 
-            ...items
-                .map(
-                  (item) => Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Text(
-                      "• $item",
-                      style: const TextStyle(color: Colors.white70),
-                    ),
-                  ),
-                )
-                .toList(),
+            ...items.map(
+              (item) => Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Text(
+                  "• $item",
+                  style: const TextStyle(color: Colors.white70),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -80,7 +78,7 @@ class UiHelper {
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: Colors.orange.withOpacity(0.6),
+            color: Colors.orange.withValues(alpha: 0.6),
             blurRadius: 12,
             spreadRadius: 2,
           ),
@@ -117,7 +115,7 @@ class UiHelper {
           gradient: const LinearGradient(colors: [Colors.blue, Colors.purple]),
           boxShadow: [
             BoxShadow(
-              color: Colors.blue.withOpacity(0.3),
+              color: Colors.blue.withValues(alpha: 0.3),
               blurRadius: 10,
               spreadRadius: 1,
             ),
@@ -157,12 +155,12 @@ class UiHelper {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.blue.withOpacity(0.3),
+              color: Colors.blue.withValues(alpha: 0.3),
               blurRadius: 8,
               spreadRadius: 1,
             ),
             BoxShadow(
-              color: Colors.purple.withOpacity(0.3),
+              color: Colors.purple.withValues(alpha: 0.3),
               blurRadius: 8,
               spreadRadius: 1,
             ),
@@ -185,7 +183,8 @@ class UiHelper {
           gradient: const LinearGradient(colors: [Colors.blue, Colors.purple]),
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
-            BoxShadow(color: Colors.blue.withOpacity(0.4), blurRadius: 15),
+            BoxShadow(
+                color: Colors.blue.withValues(alpha: 0.4), blurRadius: 15),
           ],
         ),
         child: Center(
@@ -246,7 +245,7 @@ class UiHelper {
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              color: Colors.blue.withOpacity(0.7),
+              color: Colors.blue.withValues(alpha: 0.7),
               blurRadius: 25,
               spreadRadius: 2,
             ),
@@ -274,7 +273,7 @@ class UiHelper {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.08),
+          color: Colors.white.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(30),
           border: Border.all(color: Colors.white24),
         ),

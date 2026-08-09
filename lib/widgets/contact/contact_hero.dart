@@ -9,6 +9,10 @@ class ContactHero extends StatelessWidget {
   Widget build(BuildContext context) {
     final textColor = isDark ? Colors.white : const Color(0xFF0F172A);
     final subTextColor = isDark ? Colors.white70 : const Color(0xFF475569);
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 650;
+    final avatarRadius = isMobile ? 60.0 : 67.5;
+    final avatarSize = avatarRadius * 2;
 
     return Column(
       children: [
@@ -21,27 +25,25 @@ class ContactHero extends StatelessWidget {
             ),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF3B82F6).withValues(alpha: 0.25),
-                blurRadius: 20,
-                spreadRadius: 2,
+                color: const Color(0xFF3B82F6).withValues(alpha: 0.35),
+                blurRadius: 24,
+                spreadRadius: 3,
               ),
             ],
           ),
           padding: const EdgeInsets.all(3),
-          child: CircleAvatar(
-            radius: 48,
-            backgroundColor: isDark ? const Color(0xFF1E202E) : Colors.white,
-            child: ClipOval(
+          child: ClipOval(
+            child: SizedBox(
+              width: avatarSize,
+              height: avatarSize,
               child: Image.asset(
-                'assets/images/sagar_borkar_1.webp',
-                width: 96,
-                height: 96,
-                cacheWidth: 192,
-                cacheHeight: 192,
+                'assets/images/sagar_persional_photo_3.webp',
                 fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
+                filterQuality: FilterQuality.high,
                 errorBuilder: (context, error, stackTrace) => Icon(
                   Icons.person,
-                  size: 48,
+                  size: avatarRadius,
                   color: isDark ? Colors.white70 : Colors.black54,
                 ),
               ),
